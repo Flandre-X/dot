@@ -4,6 +4,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Required for certain plugins
 Plug 'xolox/vim-misc'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 
 " Vim-specific
 " TODO read docs
@@ -36,8 +38,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-endwise'
-" TODO learn mappings
-Plug 'tpope/vim-unimpaired'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 
 
 " Navigation
@@ -53,6 +55,8 @@ Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 Plug 'haya14busa/incsearch.vim'
 Plug 'unblevable/quick-scope'
+" TODO learn mappings
+Plug 'tpope/vim-unimpaired'
 
 
 " Git
@@ -204,6 +208,12 @@ endif
 
 if PlugEnabled('SimpylFold')
   "let g:SimpylFold_docstring_preview = 1
+endif
+
+
+if PlugEnabled('vim-snipmate')
+  imap <C-J>  <Esc>a<Plug>snipMateNextOrTrigger
+  smap <C-J>  <Plug>snipMateNextOrTrigger
 endif
 
 
