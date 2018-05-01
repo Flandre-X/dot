@@ -101,7 +101,7 @@ endif
 if PlugEnabled('vim-fugitive')
   noremap <C-S-H>  <ESC>:Git 
   noremap <silent> <C-S-A>c  :Gcommit<CR>
-  noremap <silent> <C-S-A>p  :Gpush<CR>
+  noremap <silent> <C-S-A>p  :echomsg 'Pushing...'<CR>:Gpush<CR>
   noremap <silent> <C-S-A>s  :Gstatus<CR>
 endif
 
