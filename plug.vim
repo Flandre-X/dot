@@ -43,6 +43,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 " SETUP install 'exuberant-ctags'
 Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
 
 
 " Git
@@ -173,6 +174,11 @@ endif
 
 if PlugEnabled('SimpylFold')
   "let g:SimpylFold_docstring_preview = 1
+endif
+
+
+if PlugEnabled('tagbar')
+  nnoremap <silent> <F8>  :TagbarToggle<CR>
 endif
 
 
