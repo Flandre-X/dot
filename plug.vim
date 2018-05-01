@@ -1,43 +1,55 @@
+" Everything preceded by SETUP may require manual installation
+
 call plug#begin('~/.config/nvim/plugged')
 
 " Vim-specific
 " TODO read docs
 Plug 'tpope/vim-sensible'
+Plug 'kopischke/vim-stay'
+Plug 'Konfekt/FastFold'
+
+
+" Mappings/Text Objects
 " TODO read docs
 Plug 'tpope/vim-surround'
-" TODO read docs
-Plug 'Konfekt/FastFold'
-Plug 'kopischke/vim-stay'
+Plug 'junegunn/vim-easy-align'
+" TODO learn mappings
+Plug 'scrooloose/nerdcommenter'
 " TODO read docs
 "Plug 'svermeulen/vim-easyclip'
 
-" Programming
-" Requires manual installation
-"Plug 'Valloric/YouCompleteMe'
-Plug '~/.config/nvim/plugged/YouCompleteMe'
 
 " TODO read docs
 "Plug 'neomake/neomake'
 
-" Code Formatting/Linting
+
+" Code Writing assistance
+" SETUP manual installation
+"Plug 'Valloric/YouCompleteMe'
+Plug '~/.config/nvim/plugged/YouCompleteMe'
 Plug 'w0rp/ale'
-Plug 'junegunn/vim-easy-align'
+
 
 " Navigation
-" TODO read docs
+" TODO learn mappings
 Plug 'scrooloose/nerdtree'
+" TODO read docs
+"Plug 'mileszs/ack.vim'
+
 
 " Git
 " TODO read docs
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+
 " Python
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'tmhedberg/SimpylFold'
 
+
 " Aesthetics/Color Schemes
-" TODO install powerline/fonts
+" SETUP install powerline/fonts
 Plug 'powerline/fonts'
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
@@ -46,8 +58,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
-" TODO
-"Plug 'ryanoasis/nerd-fonts'
+" TODO ryanoasis/nerd-fonts
 "Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -111,6 +122,24 @@ if PlugEnabled('lightline.vim')
     endif
     return ''
   endfunction
+endif
+
+
+if PlugEnabled('nerdcommenter')
+  " Add spaces after comment delimiters by default
+  "let g:NERDSpaceDelims = 1
+  " Use compact syntax for prettified multi-line comments
+  "let g:NERDCompactSexyComs = 1
+  " Align line-wise comment delimiters flush left instead of following code indentation
+  "let g:NERDDefaultAlign = 'left'
+  " Set a language to use its alternate delimiters by default
+  "let g:NERDAltDelims_java = 1
+  " Add your own custom formats or override the defaults
+  "let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+  " Allow commenting and inverting empty lines (useful when commenting a region)
+  "let g:NERDCommentEmptyLines = 1
+  " Enable trimming of trailing whitespace when uncommenting
+  "let g:NERDTrimTrailingWhitespace = 1
 endif
 
 
