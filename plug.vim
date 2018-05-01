@@ -2,6 +2,9 @@
 
 call plug#begin('~/.config/nvim/plugged')
 
+" Required for certain plugins
+Plug 'xolox/vim-misc'
+
 " Vim-specific
 " TODO read docs
 Plug 'tpope/vim-sensible'
@@ -37,8 +40,9 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 " TODO read docs
 "Plug 'mileszs/ack.vim'
-" TODO read ctrlp-mappings (<C-P>?<CR>)
 Plug 'ctrlpvim/ctrlp.vim'
+" SETUP install 'exuberant-ctags'
+Plug 'xolox/vim-easytags'
 
 
 " Git
