@@ -12,6 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'kopischke/vim-stay'
 Plug 'Konfekt/FastFold'
 Plug 'ap/vim-buftabline'
+Plug 'sjl/gundo.vim'
 
 
 " Mappings/Commands/Text Objects
@@ -23,6 +24,7 @@ Plug 'scrooloose/nerdcommenter'
 " TODO read docs
 "Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-eunuch'
+Plug 'terryma/vim-multiple-cursors'
 
 
 " TODO read docs
@@ -43,10 +45,14 @@ Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 " TODO read docs
 "Plug 'mileszs/ack.vim'
+" Possible alternative?
+"Plug 'dyng/ctrlsf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " SETUP install 'exuberant-ctags'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
+Plug 'haya14busa/incsearch.vim'
+Plug 'unblevable/quick-scope'
 
 
 " Git
@@ -61,10 +67,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tmhedberg/SimpylFold'
 
 
-" Aesthetics/Color Schemes
+" Aesthetic/Color Schemes
 " SETUP install 'powerline/fonts'
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
@@ -111,6 +118,18 @@ if PlugEnabled('vim-fugitive')
   noremap <silent> <C-S-A>c  :Gcommit<CR>
   noremap <silent> <C-S-A>p  :echomsg 'Pushing...'<CR>:Gpush<CR>
   noremap <silent> <C-S-A>s  :Gstatus<CR>
+endif
+
+
+if PlugEnabled('gundo.vim')
+  nnoremap <F5> :GundoToggle<CR>
+endif
+
+
+if PlugEnabled('incsearch.vim')
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
 endif
 
 
@@ -172,6 +191,14 @@ endif
 
 if PlugEnabled('python-mode')
   let g:pymode_python = 'python3'
+endif
+
+
+if PlugEnabled('quick-scope')
+  " Only highlight keys when pressing one of these
+  let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+  nmap <leader>q  <Plug>(QuickScopeToggle)
+  vmap <leader>q  <Plug>(QuickScopeToggle)
 endif
 
 
