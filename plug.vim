@@ -107,6 +107,12 @@ if PlugEnabled('ale')
 endif
 
 
+if PlugEnabled('auto-pairs')
+  " Turn on Fly Mode
+  let g:AutoPairsFlyMode = 1
+endif
+
+
 if PlugEnabled('vim-devicons')
   "set guifont
 endif
