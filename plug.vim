@@ -11,6 +11,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-repeat'
 Plug 'kopischke/vim-stay'
 Plug 'Konfekt/FastFold'
+Plug 'ap/vim-buftabline'
 
 
 " Mappings/Commands/Text Objects
@@ -30,9 +31,11 @@ Plug 'tpope/vim-eunuch'
 
 " Code Writing assistance
 " SETUP manual installation
-"Plug 'Valloric/YouCompleteMe'
-Plug '~/.config/nvim/plugged/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-endwise'
+" TODO learn mappings
+Plug 'tpope/vim-unimpaired'
 
 
 " Navigation
@@ -59,8 +62,7 @@ Plug 'tmhedberg/SimpylFold'
 
 
 " Aesthetics/Color Schemes
-" SETUP install powerline/fonts
-Plug 'powerline/fonts'
+" SETUP install 'powerline/fonts'
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'altercation/vim-colors-solarized'
@@ -68,6 +70,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
+
 " TODO ryanoasis/nerd-fonts
 "Plug 'ryanoasis/vim-devicons'
 
