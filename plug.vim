@@ -1,8 +1,11 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Vim-specific
+" TODO read docs
 Plug 'tpope/vim-sensible'
+" TODO read docs
 Plug 'tpope/vim-surround'
+" TODO read docs
 Plug 'Konfekt/FastFold'
 Plug 'kopischke/vim-stay'
 
@@ -11,17 +14,20 @@ Plug 'kopischke/vim-stay'
 "Plug 'Valloric/YouCompleteMe'
 Plug '~/.config/nvim/plugged/YouCompleteMe'
 
+" TODO read docs
 "Plug 'neomake/neomake'
 
 " Code Formatting/Linting
 Plug 'w0rp/ale'
+" TODO read docs
 Plug 'junegunn/vim-easy-align'
 
 " Navigation
+" TODO read docs
 Plug 'scrooloose/nerdtree'
 
 " Git
-" TODO
+" TODO read docs
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
