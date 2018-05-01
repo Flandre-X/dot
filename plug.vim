@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Vim-specific
 " TODO read docs
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-repeat'
 Plug 'kopischke/vim-stay'
 Plug 'Konfekt/FastFold'
 
@@ -36,11 +37,14 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 " TODO read docs
 "Plug 'mileszs/ack.vim'
+" TODO read docs
+Plug 'ctrlpvim/ctrlp.vim'
 
 
 " Git
 " TODO read docs
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 
