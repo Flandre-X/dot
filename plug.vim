@@ -9,7 +9,7 @@ Plug 'kopischke/vim-stay'
 Plug 'Konfekt/FastFold'
 
 
-" Mappings/Text Objects
+" Mappings/Commands/Text Objects
 " TODO read docs
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
@@ -17,6 +17,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdcommenter'
 " TODO read docs
 "Plug 'svermeulen/vim-easyclip'
+Plug 'tpope/vim-eunuch'
 
 
 " TODO read docs
@@ -90,6 +91,14 @@ endif
 if PlugEnabled('vim-easy-align')
   xmap ga  <Plug>(EasyAlign)
   nmap ga  <Plug>(EasyAlign)
+endif
+
+
+if PlugEnabled('vim-fugitive')
+  noremap <C-S-H>  <ESC>:Git 
+  noremap <silent> <C-S-A>c  :Gcommit<CR>
+  noremap <silent> <C-S-A>p  :Gpush<CR>
+  noremap <silent> <C-S-A>s  :Gstatus<CR>
 endif
 
 

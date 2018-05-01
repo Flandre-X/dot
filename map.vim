@@ -1,5 +1,5 @@
 " Esc to escape from terminal
-tnoremap <Esc>  <C-\><C-n>
+tnoremap <Esc>  <C-\><C-V>
 
 " Toggle fold/unfold
 nnoremap <space>  za
@@ -8,4 +8,4 @@ nnoremap <space>  za
 nnoremap <leader>/  :nohlsearch<CR>
 
 " Paste from clipboard (Inserting ^-<Key> can be done using C-q)
-inoremap <C-v>  <Esc>"*pa
+inoremap <C-V>  <Esc>"*pa
