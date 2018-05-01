@@ -40,6 +40,7 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-endwise'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 
 
 " Navigation
