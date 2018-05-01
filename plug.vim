@@ -35,17 +35,18 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'tmhedberg/SimpylFold'
 
-" Color Schemes/Aesthetics
+" Aesthetics/Color Schemes
 " TODO install powerline/fonts
 Plug 'powerline/fonts'
 Plug 'itchyny/lightline.vim'
+Plug 'flazz/vim-colorschemes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 " TODO
-Plug 'ryanoasis/nerd-fonts'
+"Plug 'ryanoasis/nerd-fonts'
 "Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
