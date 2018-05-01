@@ -19,7 +19,6 @@ Plug '~/.config/nvim/plugged/YouCompleteMe'
 
 " Code Formatting/Linting
 Plug 'w0rp/ale'
-" TODO read docs
 Plug 'junegunn/vim-easy-align'
 
 " Navigation
@@ -72,6 +71,12 @@ endif
 
 if PlugEnabled('vim-devicons')
   "set guifont
+endif
+
+
+if PlugEnabled('vim-easy-align')
+  xmap ga  <Plug>(EasyAlign)
+  nmap ga  <Plug>(EasyAlign)
 endif
 
 
