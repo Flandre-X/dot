@@ -8,6 +8,8 @@ Plug 'tpope/vim-surround'
 " TODO read docs
 Plug 'Konfekt/FastFold'
 Plug 'kopischke/vim-stay'
+" TODO read docs
+"Plug 'svermeulen/vim-easyclip'
 
 " Programming
 " Requires manual installation
