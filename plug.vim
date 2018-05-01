@@ -37,7 +37,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 " TODO read docs
 "Plug 'mileszs/ack.vim'
-" TODO read docs
+" TODO read ctrlp-mappings (<C-P>?<CR>)
 Plug 'ctrlpvim/ctrlp.vim'
 
 
