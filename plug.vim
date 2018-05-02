@@ -133,6 +133,12 @@ if PlugEnabled('vim-easy-align')
 endif
 
 
+if PlugEnabled('vim-easytags')
+  " Generate tags asynchronously
+  let g:easytags_async = 1
+endif
+
+
 if PlugEnabled('vim-fugitive')
   noremap <C-h>  <ESC>:Git<Space>
   noremap <silent> <C-a>c  :Gcommit<CR>
