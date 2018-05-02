@@ -33,6 +33,8 @@ Plug 'scrooloose/nerdcommenter'
 "Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-eunuch'
 Plug 'terryma/vim-multiple-cursors'
+" TODO learn mappings
+Plug 'wellle/visual-split.vim'
 
 
 " TODO read docs
