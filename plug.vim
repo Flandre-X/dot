@@ -21,6 +21,7 @@ Plug 'Konfekt/FastFold'
 Plug 'ap/vim-buftabline'
 Plug 'sjl/gundo.vim'
 Plug 'vimlab/split-term.vim'
+Plug 'tpope/vim-sleuth'
 
 
 " Mappings/Commands/Text Objects
