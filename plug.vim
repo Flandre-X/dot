@@ -1,5 +1,10 @@
 " Everything preceded by SETUP may require manual installation
 
+" SETUP Go to https://github.com/junegunn/vim-plug and install
+" E.g.
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 call plug#begin('~/.config/nvim/plugged')
 
 " Required for certain plugins
@@ -15,6 +20,7 @@ Plug 'kopischke/vim-stay'
 Plug 'Konfekt/FastFold'
 Plug 'ap/vim-buftabline'
 Plug 'sjl/gundo.vim'
+Plug 'vimlab/split-term.vim'
 
 
 " Mappings/Commands/Text Objects
@@ -34,7 +40,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 
 " Code Writing assistance
-" SETUP manual installation
+" SETUP May require manual installation
 Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-endwise'
@@ -51,7 +57,7 @@ Plug 'scrooloose/nerdtree'
 " Possible alternative?
 "Plug 'dyng/ctrlsf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-" SETUP install 'exuberant-ctags'
+" SETUP Install 'exuberant-ctags'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 Plug 'haya14busa/incsearch.vim'
@@ -73,18 +79,18 @@ Plug 'tmhedberg/SimpylFold'
 
 
 " Aesthetic/Color Schemes
-" SETUP install 'powerline/fonts'
+" SETUP Install 'powerline/fonts' (optional)
 Plug 'itchyny/lightline.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'flazz/vim-colorschemes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
-
-" TODO ryanoasis/nerd-fonts
-"Plug 'ryanoasis/vim-devicons'
+" SETUP Patch a font with ryanoasis/nerd-fonts
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -125,15 +131,15 @@ endif
 
 
 if PlugEnabled('vim-fugitive')
-  noremap <C-S-H>  <ESC>:Git 
-  noremap <silent> <C-S-A>c  :Gcommit<CR>
-  noremap <silent> <C-S-A>p  :echomsg 'Pushing...'<CR>:Gpush<CR>
-  noremap <silent> <C-S-A>s  :Gstatus<CR>
+  noremap <C-h>  <ESC>:Git<Space>
+  noremap <silent> <C-a>c  :Gcommit<CR>
+  noremap <silent> <C-a>p  :echomsg 'Pushing...'<CR>:Gpush<CR>
+  noremap <silent> <C-a>s  :Gstatus<CR>
 endif
 
 
 if PlugEnabled('gundo.vim')
-  nnoremap <F5> :GundoToggle<CR>
+  nnoremap <silent> <F5>  :GundoToggle<CR>
 endif
 
 
@@ -150,29 +156,34 @@ if PlugEnabled('lightline.vim')
 
   " Automatically change lightline colorscheme whenever the colorscheme
   " changes
+  let g:lightline = {}
   autocmd ColorScheme * let g:lightline.colorscheme = g:colors_name
 
-  let g:lightline = {
-    \ 'component': {
-    \   'lineinfo': ' %3l:%-2v',
-    \ },
-    \ 'component_function': {
-    \   'readonly': 'LightlineReadonly',
-    \   'fugitive': 'LightlineFugitive'
-    \ },
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' }
-    \ }
-  function! LightlineReadonly()
-    return &readonly ? '' : ''
-  endfunction
-  function! LightlineFugitive()
-    if exists('*fugitive#head')
-      let branch = fugitive#head()
-      return branch !=# '' ? ''.branch : ''
-    endif
-    return ''
-  endfunction
+  let s:fancy_lightline = 0
+
+  if s:fancy_lightline
+    let g:lightline = {
+      \ 'component': {
+      \   'lineinfo': ' %3l:%-2v',
+      \ },
+      \ 'component_function': {
+      \   'readonly': 'LightlineReadonly',
+      \   'fugitive': 'LightlineFugitive'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+    function! LightlineReadonly()
+      return &readonly ? '' : ''
+    endfunction
+    function! LightlineFugitive()
+      if exists('*fugitive#head')
+        let branch = fugitive#head()
+        return branch !=# '' ? ''.branch : ''
+      endif
+      return ''
+    endfunction
+  endif
 endif
 
 
@@ -195,8 +206,8 @@ endif
 
 
 if PlugEnabled('nerdtree')
-  noremap <C-\>  :NERDTreeToggle<CR>
-  noremap <A-\>  :NERDTreeFocus<CR>
+  noremap <silent> <C-\>  :NERDTreeToggle<CR>
+  noremap <silent> <A-\>  :NERDTreeFocus<CR>
 endif
 
 
@@ -219,8 +230,8 @@ endif
 
 
 if PlugEnabled('vim-snipmate')
-  imap <C-J>  <Esc>a<Plug>snipMateNextOrTrigger
-  smap <C-J>  <Plug>snipMateNextOrTrigger
+  imap <C-j>  <Esc>a<Plug>snipMateNextOrTrigger
+  smap <C-j>  <Plug>snipMateNextOrTrigger
 endif
 
 

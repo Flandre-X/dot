@@ -4,10 +4,10 @@ let mapleader = ","
 
 if has('gui_running')
   set background=light
-  colorscheme solarized
+  silent! colorscheme solarized
 else
   set background=dark
-  colorscheme solarized
+  silent! colorscheme solarized
 endif
 set colorcolumn=80
 set cursorline
