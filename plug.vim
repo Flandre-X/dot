@@ -36,6 +36,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'terryma/vim-multiple-cursors'
 " TODO learn mappings
 Plug 'wellle/visual-split.vim'
+" TODO learn mappings
+Plug 'tpope/vim-unimpaired'
+" TODO learn mappings
+Plug 'easymotion/vim-easymotion'
 
 
 " TODO read docs
@@ -65,8 +69,6 @@ Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 Plug 'haya14busa/incsearch.vim'
 Plug 'unblevable/quick-scope'
-" TODO learn mappings
-Plug 'tpope/vim-unimpaired'
 
 
 " Git
@@ -79,6 +81,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Python
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'tmhedberg/SimpylFold'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 
 " Aesthetic/Color Schemes
