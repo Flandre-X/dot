@@ -9,6 +9,7 @@ else
   set background=dark
   silent! colorscheme solarized
 endif
+hi Normal guibg=NONE ctermbg=NONE
 set colorcolumn=80
 set cursorline
 set number
