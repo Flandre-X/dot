@@ -2,13 +2,8 @@ source ~/.config/nvim/plug.vim
 
 let mapleader = ","
 
-if has('gui_running')
-  set background=light
-  silent! colorscheme solarized
-else
-  set background=dark
-  silent! colorscheme solarized
-endif
+set background=dark
+silent! colorscheme solarized
 hi Normal guibg=NONE ctermbg=NONE
 set colorcolumn=80
 set cursorline
