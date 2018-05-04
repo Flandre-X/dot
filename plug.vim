@@ -8,95 +8,101 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Required for certain plugins
-Plug 'xolox/vim-misc'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+Plug 'xolox/vim-misc'                 " Miscellaneous auto-load Vim scripts
+Plug 'MarcWeber/vim-addon-mw-utils'   " Interpret a file by function and cache
+                                      " file automatically
+Plug 'tomtom/tlib_vim'                " Some utility functions for VIM
 
 " Vim-specific
 " TODO read docs
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-repeat'
-Plug 'kopischke/vim-stay'
-Plug 'Konfekt/FastFold'
-Plug 'ap/vim-buftabline'
-Plug 'sjl/gundo.vim'
-Plug 'vimlab/split-term.vim'
-Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sensible'     " Defaults everyone can agree on
+Plug 'tpope/vim-repeat'       " Enable repeating supported plugin maps with '.'
+Plug 'kopischke/vim-stay'     " Make Vim persist editing state without fuss
+Plug 'Konfekt/FastFold'       " Speed up Vim fold updating
+Plug 'ap/vim-buftabline'      " A buffer list that lives in the tabline
+Plug 'sjl/gundo.vim'          " Visualize your Vim undo tree
+Plug 'vimlab/split-term.vim'  " Utilities around neovim's `:terminal`
+Plug 'tpope/vim-sleuth'   " Heuristically set tab options based on current file
 
 
 " Mappings/Commands/Text Objects
 " TODO read docs
-Plug 'tpope/vim-surround'
-Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'   " Mappings to delete, change, and add surroundings
+Plug 'junegunn/vim-easy-align'    " Mappings for text alignment
 " TODO learn mappings
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'   " Comment mappings
 " TODO read docs
-"Plug 'svermeulen/vim-easyclip'
-Plug 'tpope/vim-eunuch'
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'svermeulen/vim-easyclip'   " Simplified clipboard functionality
+Plug 'tpope/vim-eunuch'           " Vim sugar for UNIX shell commands
 " TODO learn mappings
-Plug 'wellle/visual-split.vim'
+Plug 'terryma/vim-multiple-cursors' " Sublime Text-like multiple cursors
 " TODO learn mappings
-Plug 'tpope/vim-unimpaired'
+Plug 'wellle/visual-split.vim'    " Control splits with visual selections
 " TODO learn mappings
-Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-unimpaired'       " Pairs of handy bracket mappings
+" TODO learn mappings
+Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 
 
 " TODO read docs
-"Plug 'neomake/neomake'
+"Plug 'neomake/neomake'   " Asynchronous linting and make framework
 
 
 " Code Writing assistance
 " SETUP May require manual installation
-Plug 'Valloric/YouCompleteMe'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-endwise'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Valloric/YouCompleteMe'   " Code-completion engine
+Plug 'w0rp/ale'                 " Asynchronous Lint Engine
+Plug 'tpope/vim-endwise'        " Wisely add 'end'-like keywords
+Plug 'garbas/vim-snipmate'      " TextMate's snippets
+Plug 'honza/vim-snippets'       " vim-snipmate default snippets
+Plug 'jiangmiao/auto-pairs'     " Insert or delete pairs
 
 
 " Navigation
 " TODO learn mappings
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'  " Tree explorer plugin
 " TODO read docs
-"Plug 'mileszs/ack.vim'
-" Possible alternative?
-"Plug 'dyng/ctrlsf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'mileszs/ack.vim'     " Search tool with enhanced results list
+" TODO Possible alternative?
+"Plug 'dyng/ctrlsf.vim'     " Ack powered code search
+Plug 'ctrlpvim/ctrlp.vim'   " Full path fuzzy file, buffer, mru, tag,... finder
 " SETUP Install 'exuberant-ctags'
-Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
-Plug 'haya14busa/incsearch.vim'
-Plug 'unblevable/quick-scope'
+Plug 'xolox/vim-easytags'   " Automated tag file generation and syntax
+                            " highlighting of tags
+Plug 'majutsushi/tagbar'    " Display tags in a window, ordered by scope
+Plug 'haya14busa/incsearch.vim'   " Improved incremental searching
+Plug 'unblevable/quick-scope'   " Highlights which characters to target for f/F
 
 
 " Git
 " TODO read docs
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'       " A Git wrapper so awesome, it should be illegal
+Plug 'airblade/vim-gitgutter'   " Shows a git diff in the gutter and stages/
+                                " undoes hunks
+Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree showing git status flags
 
 
 " Python
+" PyLint, Rope, Pydoc breakpoints from box
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'tmhedberg/SimpylFold'
-Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'tmhedberg/SimpylFold'             " Python code folding
+Plug 'Vimjas/vim-python-pep8-indent'    " Modifies indentation behavior to
+                                        " comply with PEP8
 
 
 " Aesthetic/Color Schemes
 " SETUP Install 'powerline/fonts' (optional)
-Plug 'itchyny/lightline.vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'flazz/vim-colorschemes'
+Plug 'itchyny/lightline.vim'    " Light and configurable statusline/tabline
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Syntax highlight for NERDTree
+Plug 'ntpeters/vim-better-whitespace'   " Trailing whitespace highlighting
+Plug 'flazz/vim-colorschemes'   " Collection of vim color schemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 " SETUP Patch a font with ryanoasis/nerd-fonts
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 
 call plug#end()
 
@@ -194,6 +200,17 @@ if PlugEnabled('lightline.vim')
       endif
       return ''
     endfunction
+  else
+    let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
   endif
 endif
 
