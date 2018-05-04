@@ -12,6 +12,8 @@ Plug 'xolox/vim-misc'                 " Miscellaneous auto-load Vim scripts
 Plug 'MarcWeber/vim-addon-mw-utils'   " Interpret a file by function and cache
                                       " file automatically
 Plug 'tomtom/tlib_vim'                " Some utility functions for VIM
+Plug 'godlygeek/tabular'              " Text filtering and alignment
+                                      " plasticboy/vim-markdown
 
 " Vim-specific
 " TODO read docs
@@ -32,7 +34,7 @@ Plug 'junegunn/vim-easy-align'    " Mappings for text alignment
 " TODO learn mappings
 Plug 'scrooloose/nerdcommenter'   " Comment mappings
 " TODO read docs
-"Plug 'svermeulen/vim-easyclip'   " Simplified clipboard functionality
+"Plug 'svermeulen/vim-easyclip'    " Simplified clipboard functionality
 Plug 'tpope/vim-eunuch'           " Vim sugar for UNIX shell commands
 " TODO learn mappings
 Plug 'terryma/vim-multiple-cursors' " Sublime Text-like multiple cursors
@@ -45,7 +47,7 @@ Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 
 
 " TODO read docs
-"Plug 'neomake/neomake'   " Asynchronous linting and make framework
+"Plug 'neomake/neomake'    " Asynchronous linting and make framework
 
 
 " Code Writing assistance
@@ -62,9 +64,9 @@ Plug 'jiangmiao/auto-pairs'     " Insert or delete pairs
 " TODO learn mappings
 Plug 'scrooloose/nerdtree'  " Tree explorer plugin
 " TODO read docs
-"Plug 'mileszs/ack.vim'     " Search tool with enhanced results list
+"Plug 'mileszs/ack.vim'      " Search tool with enhanced results list
 " TODO Possible alternative?
-"Plug 'dyng/ctrlsf.vim'     " Ack powered code search
+"Plug 'dyng/ctrlsf.vim'      " Ack powered code search
 Plug 'ctrlpvim/ctrlp.vim'   " Full path fuzzy file, buffer, mru, tag,... finder
 " SETUP Install 'exuberant-ctags'
 Plug 'xolox/vim-easytags'   " Automated tag file generation and syntax
@@ -80,6 +82,10 @@ Plug 'tpope/vim-fugitive'       " A Git wrapper so awesome, it should be illegal
 Plug 'airblade/vim-gitgutter'   " Shows a git diff in the gutter and stages/
                                 " undoes hunks
 Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree showing git status flags
+
+
+" Markdown
+Plug 'plasticboy/vim-markdown'  " Matching rules and mappings for Markdown
 
 
 " Python
@@ -212,6 +218,14 @@ if PlugEnabled('lightline.vim')
       \ },
       \ }
   endif
+endif
+
+
+if PlugEnabled('vim-markdown')
+  augroup vim_markdown
+    au!
+    au FileType markdown set conceallevel=2
+  augroup END
 endif
 
 
