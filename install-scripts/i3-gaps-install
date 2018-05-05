@@ -9,8 +9,11 @@ sysconfdir='/etc'
 # Install dependencies
 sudo apt install $deps || (echo 'Failed to install dependencies'; exit 1)
 
-git clone "$src_url" i3-gaps || (echo 'Failed to clone the repo'; exit 1)
-cd i3-gaps
+rm -rf "${dest}.tmp"
+git clone "$src_url" "${dest}.tmp" || (echo 'Failed to clone the repo'; exit 1)
+rm -rf "$dest"
+mv -T "${dest}.tmp" "$dest"
+cd "$dest"
 
 # Compile & install
 autoreconf --force --install
