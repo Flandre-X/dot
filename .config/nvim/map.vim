@@ -2,7 +2,7 @@
 nnoremap <Return>  za
 
 " Temporarily turn of search highlighting
-nnoremap <Leader>/  :nohlsearch<CR>
+nnoremap <silent> <Leader>/  :nohlsearch<CR>
 
 " Paste from clipboard (Inserting ^-<Key> can be done using C-q)
 inoremap <C-V>  <Esc>"*pa
