@@ -10,7 +10,7 @@ _ln_home() {
     ln -sf "$src" "$tgt"
 }
 
-for d in .config/*; do
+for d in config/*; do
     msg INSTALL "$(basename "$d")"
-    _ln_home "$d"
+    _ln_home "$d" ".$d"
 done

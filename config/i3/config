@@ -23,6 +23,12 @@ set $term --no-startup-id gnome-terminal
 exec --no-startup-id feh --bg-scale ~/Pictures/壁紙/ヱリカとノックス.jpg
 # Set key rate
 exec --no-startup-id xset r rate 350
+# Start redshift
+exec --no-startup-id redshift-gtk
+# Start automatic disk mounting
+exec --no-startup-id udiskie
+# Start Network Manager applet
+exec --no-startup-id nm-applet
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
