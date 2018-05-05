@@ -84,16 +84,17 @@ Plug 'airblade/vim-gitgutter'   " Shows a git diff in the gutter and stages/
 Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree showing git status flags
 
 
-" Markdown
-Plug 'plasticboy/vim-markdown'  " Matching rules and mappings for Markdown
-
-
 " Python
 " PyLint, Rope, Pydoc breakpoints from box
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'tmhedberg/SimpylFold'             " Python code folding
 Plug 'Vimjas/vim-python-pep8-indent'    " Modifies indentation behavior to
                                         " comply with PEP8
+
+
+" Misc Language/Syntax
+Plug 'PotatoesMaster/i3-vim-syntax'   " syntax for i3 config file
+Plug 'plasticboy/vim-markdown'        " Rules and mappings for Markdown
 
 
 " Aesthetic/Color Schemes
