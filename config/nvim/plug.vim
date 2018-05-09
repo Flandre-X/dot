@@ -25,6 +25,7 @@ Plug 'ap/vim-buftabline'      " A buffer list that lives in the tabline
 Plug 'sjl/gundo.vim'          " Visualize your Vim undo tree
 Plug 'vimlab/split-term.vim'  " Utilities around neovim's `:terminal`
 Plug 'tpope/vim-sleuth'   " Heuristically set tab options based on current file
+Plug 'benmills/vimux'         " Interact with tmux from vim - e.g. code exec
 
 
 " Mappings/Commands/Text Objects
@@ -44,10 +45,6 @@ Plug 'wellle/visual-split.vim'    " Control splits with visual selections
 Plug 'tpope/vim-unimpaired'       " Pairs of handy bracket mappings
 " TODO learn mappings
 Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
-
-
-" TODO read docs
-"Plug 'neomake/neomake'    " Asynchronous linting and make framework
 
 
 " Code Writing assistance
