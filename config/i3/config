@@ -22,7 +22,7 @@ set $term --no-startup-id gnome-terminal
 # Set the background
 exec_always --no-startup-id feh --bg-scale ~/Pictures/壁紙/ヱリカとノックス.jpg
 # Set key rate
-exec --no-startup-id xset r rate 350
+exec --no-startup-id xset r rate 325
 # Start redshift
 exec --no-startup-id redshift-gtk
 # Start automatic disk mounting
