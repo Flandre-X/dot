@@ -23,6 +23,7 @@ set splitright
 set mouse=a
 
 set foldmethod=syntax
-let vimsyn_folding='af'
+set nofoldenable
+"let vimsyn_folding='af'
 
 source ~/.config/nvim/map.vim
