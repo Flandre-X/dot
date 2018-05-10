@@ -153,9 +153,9 @@ endif
 
 
 if PlugEnabled('vim-fugitive')
-  noremap <silent> <C-a>c  :Gcommit<CR>
-  noremap <silent> <C-a>p  :echomsg 'Pushing...'<CR>:Gpush<CR>
-  noremap <silent> <C-a>s  :Gstatus<CR>
+  "noremap <silent> <C-a>c  :Gcommit<CR>
+  "noremap <silent> <C-a>p  :echomsg 'Pushing...'<CR>:Gpush<CR>
+  "noremap <silent> <C-a>s  :Gstatus<CR>
 endif
 
 
@@ -180,7 +180,7 @@ if PlugEnabled('lightline.vim')
   let g:lightline = {}
   autocmd ColorScheme * let g:lightline.colorscheme = g:colors_name
 
-  let s:fancy_lightline = 0
+  let s:fancy_lightline = 1
 
   if s:fancy_lightline
     let g:lightline = {
