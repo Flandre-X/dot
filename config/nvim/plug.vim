@@ -92,6 +92,7 @@ Plug 'Vimjas/vim-python-pep8-indent'    " Modifies indentation behavior to
 " Misc Language/Syntax
 Plug 'PotatoesMaster/i3-vim-syntax'   " syntax for i3 config file
 Plug 'plasticboy/vim-markdown'        " Rules and mappings for Markdown
+Plug 'tmux-plugins/vim-tmux'          " Syntax highlighting for tmux
 
 
 " Aesthetic/Color Schemes
