@@ -5,7 +5,7 @@ let mapleader = ","
 set background=dark
 silent! colorscheme solarized
 hi Normal guibg=NONE ctermbg=NONE
-set colorcolumn=80
+set colorcolumn=79
 set cursorline
 set number
 
