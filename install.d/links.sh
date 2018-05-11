@@ -14,3 +14,9 @@ for d in config/*; do
     msg INSTALL "$(basename "$d")"
     _ln_home "$d" ".$d"
 done
+
+IFS='\n'
+while read f; do
+    msg INSTALL "$(basename "$f")"
+    _ln_home "$f" ".$f"
+done <to-install
