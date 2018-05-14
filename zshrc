@@ -67,9 +67,7 @@ source "$ZPLUG_HOME/init.zsh"
 # Oh My Zsh
 zplug "plugins/git", from:oh-my-zsh
 
-zplug "lukechilds/zsh-better-npm-completion", defer:2
-
-zplug load --verbose
+zplug load
 
 # User configuration
 
