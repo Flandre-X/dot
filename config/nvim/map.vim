@@ -13,6 +13,7 @@ nnoremap <M-l>  <C-w>l
 " Insert literal tab (useful if expandtab is enabled)
 inoremap <S-Tab>  <C-v><Tab>
 
+" https://github.com/junegunn/vim-plug/wiki/extra  {{{
 " Open GitHub URLs in browser
 function! s:plug_gx()
   let line = getline('.')
@@ -96,3 +97,4 @@ augroup VimAwesomeComplete
   autocmd!
   autocmd FileType vim inoremap <c-x><c-v> <c-r>=VimAwesomeComplete()<cr>
 augroup END
+" }}}
