@@ -131,7 +131,7 @@ Plug 'ap/vim-css-color'       " Preview colors in source code while editing
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
-
+" Load last
 Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 
 call plug#end()
