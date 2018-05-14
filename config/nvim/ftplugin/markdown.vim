@@ -1,2 +1,2 @@
 " Wrap lines nicely for reading
-set linebreak
+setlocal linebreak
