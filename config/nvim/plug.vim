@@ -55,6 +55,7 @@ Plug 'terryma/vim-multiple-cursors' " Sublime Text-like multiple cursors
 Plug 'wellle/visual-split.vim'    " Control splits with visual selections
 " TODO learn mappings
 Plug 'tpope/vim-unimpaired'       " Pairs of handy bracket mappings
+Plug 'tpope/vim-rsi'              " Readline key bindings in Vim
 " TODO learn mappings
 Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 
