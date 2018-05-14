@@ -10,6 +10,7 @@ nnoremap <M-l>  <C-w>l
 " Insert literal tab (useful if expandtab is enabled)
 inoremap <S-Tab>  <C-v><Tab>
 
+
 " https://github.com/junegunn/vim-plug/wiki/extra  {{{
 " Open GitHub URLs in browser
 function! s:plug_gx()
@@ -32,6 +33,7 @@ augroup PlugGx
   autocmd FileType vim-plug nnoremap <buffer> <silent> gx :call <sid>plug_gx()<cr>
 augroup END
 
+
 " Add PlugHelp command
 function! s:plug_help_sink(line)
   let dir = g:plugs[a:line].dir
@@ -50,7 +52,32 @@ command! PlugHelp call fzf#run(fzf#wrap({
   \ 'source': sort(keys(g:plugs)),
   \ 'sink':   function('s:plug_help_sink')}))
 
-" vim-plug completion
+
+" Extra key bindings for PlugDiff
+function! s:scroll_preview(down)
+  silent! wincmd P
+  if &previewwindow
+    execute 'normal!' a:down ? "\<c-e>" : "\<c-y>"
+    wincmd p
+  endif
+endfunction
+
+function! s:setup_extra_keys()
+  nnoremap <silent> <buffer> J      :call <sid>scroll_preview(1)<cr>
+  nnoremap <silent> <buffer> K      :call <sid>scroll_preview(0)<cr>
+  nnoremap <silent> <buffer> <c-n>  :call search('^  \X*\zs\x')<cr>
+  nnoremap <silent> <buffer> <cp>   :call search('^  \X*\zs\x', 'b')<cr>
+  nmap     <silent> <buffer> <c-j>  <c-n>o
+  nmap     <silent> <buffer> <c-k>  <c-p>o
+endfunction
+
+augroup PlugDiffExtra
+  autocmd!
+  autocmd FileType vim-plug call s:setup_extra_keys()
+augroup END
+
+
+" vim-plug completion using VimAwesome
 function! VimAwesomeComplete() abort
   let prefix = matchstr(strpart(getline('.'), 0, col('.') - 1), '[.a-zA-Z0-9_/-]*$')
   echohl WarningMsg
