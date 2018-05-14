@@ -35,6 +35,7 @@ Plug 'sjl/gundo.vim'          " Visualize your Vim undo tree
 Plug 'vimlab/split-term.vim'  " Utilities around neovim's `:terminal`
 Plug 'tpope/vim-sleuth'   " Heuristically set tab options based on current file
 Plug 'benmills/vimux'         " Interact with tmux from vim - e.g. code exec
+Plug 'qpkorr/vim-bufkill'     " Reasonable bufkill
 
 
 " Mappings/Commands/Text Objects
