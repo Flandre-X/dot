@@ -64,7 +64,10 @@ source $ZSH/oh-my-zsh.sh
 export ZPLUG_HOME="$HOME/.zplug"
 source "$ZPLUG_HOME/init.zsh"
 
+# Oh My Zsh
 zplug "plugins/git", from:oh-my-zsh
+
+zplug "lukechilds/zsh-better-npm-completion", defer:2
 
 zplug load --verbose
 
@@ -97,3 +100,5 @@ fi
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias vimconfig="$EDITOR ~/.config/nvim/plug.vim"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
