@@ -85,7 +85,7 @@ Plug 'xolox/vim-easytags'   " Automated tag file generation and syntax
                             " highlighting of tags
 Plug 'majutsushi/tagbar'    " Display tags in a window, ordered by scope
 Plug 'osyo-manga/vim-anzu'  " 現在の検索位置を画面に表示するためのプラグイン
-Plug 'haya14busa/incsearch.vim'     " Improved incremental searching
+Plug 'haya14busa/incsearch.vim'      " Improved incremental searching
 Plug 'haya14busa/is.vim'    " Improved Improved incremental searching
 Plug 'haya14busa/incsearch-fuzzy.vim'   " Fuzzy incremental searching
 Plug 'haya14busa/vim-asterisk'  " Improved * motions
