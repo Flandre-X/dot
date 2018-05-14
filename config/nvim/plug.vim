@@ -1,9 +1,19 @@
-" Everything preceded by SETUP may require manual installation
+" Everything preceded by XXX may require manual installation
 
-" SETUP Go to https://github.com/junegunn/vim-plug and install
+" XXX Go to https://github.com/junegunn/vim-plug and install
 " E.g.
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 "   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+let g:use_lightline = 0
+let g:use_airline = 1
+let g:use_powerline = 0
+let g:use_nerd_fonts = 1
+
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -21,11 +31,11 @@ Plug 'tpope/vim-sensible'     " Defaults everyone can agree on
 Plug 'tpope/vim-repeat'       " Enable repeating supported plugin maps with '.'
 Plug 'kopischke/vim-stay'     " Make Vim persist editing state without fuss
 Plug 'Konfekt/FastFold'       " Speed up Vim fold updating
-Plug 'ap/vim-buftabline'      " A buffer list that lives in the tabline
 Plug 'sjl/gundo.vim'          " Visualize your Vim undo tree
 Plug 'vimlab/split-term.vim'  " Utilities around neovim's `:terminal`
 Plug 'tpope/vim-sleuth'   " Heuristically set tab options based on current file
 Plug 'benmills/vimux'         " Interact with tmux from vim - e.g. code exec
+Plug 'roxma/vim-paste-easy'   " Automatically set paste
 
 
 " Mappings/Commands/Text Objects
@@ -48,8 +58,8 @@ Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 
 
 " Code Writing assistance
-" SETUP May require manual installation
-Plug 'Valloric/YouCompleteMe'   " Code-completion engine
+" XXX May require manual installation
+Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
 Plug 'w0rp/ale'                 " Asynchronous Lint Engine
 Plug 'tpope/vim-endwise'        " Wisely add 'end'-like keywords
 Plug 'garbas/vim-snipmate'      " TextMate's snippets
@@ -60,12 +70,15 @@ Plug 'jiangmiao/auto-pairs'     " Insert or delete pairs
 " Navigation
 " TODO learn mappings
 Plug 'scrooloose/nerdtree'  " Tree explorer plugin
+Plug 'jistr/vim-nerdtree-tabs'  " Open in all tabs
 " TODO read docs
 "Plug 'mileszs/ack.vim'      " Search tool with enhanced results list
 " TODO Possible alternative?
 "Plug 'dyng/ctrlsf.vim'      " Ack powered code search
 Plug 'ctrlpvim/ctrlp.vim'   " Full path fuzzy file, buffer, mru, tag,... finder
-" SETUP Install 'exuberant-ctags'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'     " Fuzzy finder
+" XXX Install 'exuberant-ctags'
 Plug 'xolox/vim-easytags'   " Automated tag file generation and syntax
                             " highlighting of tags
 Plug 'majutsushi/tagbar'    " Display tags in a window, ordered by scope
@@ -85,28 +98,32 @@ Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree showing git status flags
 " PyLint, Rope, Pydoc breakpoints from box
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'tmhedberg/SimpylFold'             " Python code folding
-Plug 'Vimjas/vim-python-pep8-indent'    " Modifies indentation behavior to
-                                        " comply with PEP8
 
 
 " Misc Language/Syntax
-Plug 'PotatoesMaster/i3-vim-syntax'   " syntax for i3 config file
-Plug 'plasticboy/vim-markdown'        " Rules and mappings for Markdown
+Plug 'sheerun/vim-polyglot'           " Collection of language packs
 Plug 'tmux-plugins/vim-tmux'          " Syntax highlighting for tmux
 
 
 " Aesthetic/Color Schemes
-" SETUP Install 'powerline/fonts' (optional)
-Plug 'itchyny/lightline.vim'    " Light and configurable statusline/tabline
+" Fonts patched with powerline and devicons
+Plug 'ryanoasis/nerd-fonts', Cond(g:use_nerd_fonts, { 'do': './install.py "Inconsolata Go" Iosevka' })
+" Light and configurable statusline/tabline
+Plug 'itchyny/lightline.vim', Cond(g:use_lightline)
+" A buffer list that lives in the tabline
+Plug 'ap/vim-buftabline', Cond(g:use_lightline)
+" Statusline for Vim
+Plug 'vim-airline/vim-airline', Cond(g:use_airline)
+" Themes for airline
+Plug 'vim-airline/vim-airline-themes', Cond(g:use_airline)
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Syntax highlight for NERDTree
 Plug 'ntpeters/vim-better-whitespace'   " Trailing whitespace highlighting
-Plug 'flazz/vim-colorschemes'   " Collection of vim color schemes
-Plug 'altercation/vim-colors-solarized'
-Plug 'junegunn/seoul256.vim'
-Plug 'jnurmine/Zenburn'
+"Plug 'Yggdroot/indentLine'    " Display lines at each indentation level
+Plug 'ap/vim-css-color'       " Preview colors in source code while editing
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'joshdick/onedark.vim'
-Plug 'rakr/vim-one'
-" SETUP Patch a font with ryanoasis/nerd-fonts
+Plug 'arcticicestudio/nord-vim'
+
 Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 
 call plug#end()
@@ -118,10 +135,18 @@ function! PlugEnabled(plug)
   return &runtimepath =~ 'plugged/' . a:plug . '/'
 endfunction
 
+if PlugEnabled('vim-airline')
+  let g:airline_powerline_fonts = 1
+
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#formatter = 'default'
+endif
+
 
 if PlugEnabled('ale')
   let g:ale_fixers = {
-  \  'python': ['isort', 'yapf']
+  \  'python': ['isort', 'yapf'],
+  \  'sh': ['shellcheck'],
   \}
   "let g:ale_fix_on_save = 1
 
@@ -246,9 +271,18 @@ if PlugEnabled('nerdcommenter')
 endif
 
 
-if PlugEnabled('nerdtree')
+if PlugEnabled('vim-nerdtree-tabs')
+  noremap <silent> <C-\>  :NERDTreeTabsToggle<CR>
+  noremap <silent> <A-\>  :NERDTreeSteppedOpen<CR>
+elseif PlugEnabled('nerdtree')
   noremap <silent> <C-\>  :NERDTreeToggle<CR>
   noremap <silent> <A-\>  :NERDTreeFocus<CR>
+endif
+
+
+if PlugEnabled('vim-polyglot')
+  " Use tmux-plugins/vim-tmux instead of keith/tmux.vim
+  let g:polyglot_disabled = ['tmux']
 endif
 
 
