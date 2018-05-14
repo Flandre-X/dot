@@ -82,8 +82,11 @@ Plug 'junegunn/fzf.vim'     " Fuzzy finder
 Plug 'xolox/vim-easytags'   " Automated tag file generation and syntax
                             " highlighting of tags
 Plug 'majutsushi/tagbar'    " Display tags in a window, ordered by scope
-Plug 'haya14busa/incsearch.vim'   " Improved incremental searching
+Plug 'osyo-manga/vim-anzu'  " 現在の検索位置を画面に表示するためのプラグイン
+Plug 'haya14busa/incsearch.vim'     " Improved incremental searching
+Plug 'haya14busa/is.vim'    " Improved Improved incremental searching
 Plug 'haya14busa/incsearch-fuzzy.vim'   " Fuzzy incremental searching
+Plug 'haya14busa/vim-asterisk'  " Improved * motions
 Plug 'unblevable/quick-scope'   " Highlights which characters to target for f/F
 
 
@@ -195,17 +198,6 @@ if PlugEnabled('incsearch.vim')
   map /   <Plug>(incsearch-forward)
   map ?   <Plug>(incsearch-backward)
   map g/  <Plug>(incsearch-stay)
-
-  " Automatic :nohlsearch
-  " :h g:incsearch#auto_nohlsearch
-  set hlsearch
-  let g:incsearch#auto_nohlsearch = 1
-  map n   <Plug>(incsearch-nohl-n)
-  map N   <Plug>(incsearch-nohl-N)
-  map *   <Plug>(incsearch-nohl-*)
-  map #   <Plug>(incsearch-nohl-#)
-  map g*  <Plug>(incsearch-nohl-g*)
-  map g#  <Plug>(incsearch-nohl-g#)
 endif
 
 
@@ -213,6 +205,20 @@ if PlugEnabled('incsearch-fuzzy.vim')
   map z/   <Plug>(incsearch-fuzzy-/)
   map z?   <Plug>(incsearch-fuzzy-?)
   map zg/  <Plug>(incsearch-fuzzy-stay)
+endif
+
+
+if PlugEnabled('is.vim')
+  if PlugEnabled('vim-asterisk')
+    map *   <Plug>(asterisk-z*)<Plug>(is-nohl-1)
+    map g*  <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
+    map #   <Plug>(asterisk-z#)<Plug>(is-nohl-1)
+    map g#  <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
+  endif
+  if PlugEnabled('vim-anzu')
+    map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+    map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+  endif
 endif
 
 
