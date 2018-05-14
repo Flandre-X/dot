@@ -1,9 +1,6 @@
 " Toggle fold/unfold
 nnoremap <Return>  za
 
-" Temporarily turn of search highlighting
-nnoremap <silent> <Leader>/  :nohlsearch<CR>
-
 " Window navigation
 nnoremap <M-h>  <C-w>h
 nnoremap <M-j>  <C-w>j
