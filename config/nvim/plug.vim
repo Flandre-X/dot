@@ -218,9 +218,9 @@ if PlugEnabled('is.vim')
     map #   <Plug>(asterisk-z#)<Plug>(is-nohl-1)
     map g#  <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
   endif
-  if PlugEnabled('vim-anzu')
-    map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
-    map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+  if !PlugEnabled('vim-airline') && PlugEnabled('vim-anzu')
+    map n  <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+    map N  <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
   endif
 endif
 
