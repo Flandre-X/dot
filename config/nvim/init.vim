@@ -2,9 +2,31 @@ source ~/.config/nvim/plug.vim
 
 let mapleader = ","
 
+let g:TMUX = exists('$TMUX')
+
+function! s:enable_termgui()
+  if has('termguicolors')
+    set termguicolors
+  endif
+  " This doesn't seem to be necessary
+  if g:TMUX && 0
+    " If use vim inside tmux, see https://github.com/vim/vim/issues/993
+    " set Vim-specific sequences for RGB colors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
+endfunction
+
+call s:enable_termgui()
 set background=dark
 silent! colorscheme solarized
+" Allow background to be transparent
 hi Normal guibg=NONE ctermbg=NONE
+autocmd ColorScheme solarized hi Normal guibg=NONE ctermbg=NONE
+if g:use_airline
+  "let g:airline_theme = 'solarized'
+endif
+
 set colorcolumn=79
 set cursorline
 set number
@@ -24,6 +46,10 @@ set mouse=a
 
 set foldmethod=syntax
 set nofoldenable
-"let vimsyn_folding='af'
+let g:vimsyn_folding='af'
+
+set inccommand=nosplit
+
+set undofile
 
 source ~/.config/nvim/map.vim
