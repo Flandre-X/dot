@@ -83,6 +83,7 @@ Plug 'xolox/vim-easytags'   " Automated tag file generation and syntax
                             " highlighting of tags
 Plug 'majutsushi/tagbar'    " Display tags in a window, ordered by scope
 Plug 'haya14busa/incsearch.vim'   " Improved incremental searching
+Plug 'haya14busa/incsearch-fuzzy.vim'   " Fuzzy incremental searching
 Plug 'unblevable/quick-scope'   " Highlights which characters to target for f/F
 
 
@@ -191,20 +192,27 @@ endif
 
 
 if PlugEnabled('incsearch.vim')
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
+  map /   <Plug>(incsearch-forward)
+  map ?   <Plug>(incsearch-backward)
+  map g/  <Plug>(incsearch-stay)
 
   " Automatic :nohlsearch
   " :h g:incsearch#auto_nohlsearch
   set hlsearch
   let g:incsearch#auto_nohlsearch = 1
-  map n  <Plug>(incsearch-nohl-n)
-  map N  <Plug>(incsearch-nohl-N)
-  map *  <Plug>(incsearch-nohl-*)
-  map #  <Plug>(incsearch-nohl-#)
-  map g* <Plug>(incsearch-nohl-g*)
-  map g# <Plug>(incsearch-nohl-g#)
+  map n   <Plug>(incsearch-nohl-n)
+  map N   <Plug>(incsearch-nohl-N)
+  map *   <Plug>(incsearch-nohl-*)
+  map #   <Plug>(incsearch-nohl-#)
+  map g*  <Plug>(incsearch-nohl-g*)
+  map g#  <Plug>(incsearch-nohl-g#)
+endif
+
+
+if PlugEnabled('incsearch-fuzzy.vim')
+  map z/   <Plug>(incsearch-fuzzy-/)
+  map z?   <Plug>(incsearch-fuzzy-?)
+  map zg/  <Plug>(incsearch-fuzzy-stay)
 endif
 
 
