@@ -58,6 +58,7 @@ Plug 'tpope/vim-unimpaired'       " Pairs of handy bracket mappings
 Plug 'tpope/vim-rsi'              " Readline key bindings in Vim
 " TODO learn mappings
 Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
+Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
 
 
 " Code Writing assistance
