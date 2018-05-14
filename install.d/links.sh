@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\t\n'
 
 msg() { t=$1; shift; printf '%s: %s\n' "$t" "$@"; }
 
@@ -12,11 +14,10 @@ _ln_home() {
 
 for d in config/*; do
     msg INSTALL "$(basename "$d")"
-    _ln_home "$d" ".$d"
+    _ln_home "$d" ".$d" || echo "Failed to link $d"
 done
 
-IFS='\n'
 while read f; do
     msg INSTALL "$(basename "$f")"
-    _ln_home "$f" ".$f"
+    _ln_home "$f" ".$f" || echo "Failed to link $d"
 done <to-install
