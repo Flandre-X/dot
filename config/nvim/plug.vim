@@ -69,6 +69,7 @@ Plug 'tpope/vim-endwise'        " Wisely add 'end'-like keywords
 Plug 'garbas/vim-snipmate'      " TextMate's snippets
 Plug 'honza/vim-snippets'       " vim-snipmate default snippets
 Plug 'jiangmiao/auto-pairs'     " Insert or delete pairs
+Plug 'KabbAmine/zeavim.vim'     " Zeal documentation from Vim
 
 
 " Navigation
@@ -349,4 +350,9 @@ if PlugEnabled('YouCompleteMe')
 
   let g:ycm_python_binary_path = '/usr/bin/python3'
   map <leader>g  :YcmCompleter GoToDefinitionElseDeclaratrion<CR>
+endif
+
+if PlugEnabled('zeavim.vim')
+  " <leader><leader> is the easymotion prefix
+  nmap <leader>Z  <Plug>ZVKeyDocset
 endif
