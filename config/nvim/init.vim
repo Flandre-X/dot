@@ -19,10 +19,9 @@ endfunction
 
 call s:enable_termgui()
 set background=dark
+autocmd ColorScheme solarized hi Normal guibg=NONE ctermbg=NONE
 silent! colorscheme solarized
 " Allow background to be transparent
-hi Normal guibg=NONE ctermbg=NONE
-autocmd ColorScheme solarized hi Normal guibg=NONE ctermbg=NONE
 if g:use_airline
   "let g:airline_theme = 'solarized'
 endif
