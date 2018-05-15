@@ -10,7 +10,6 @@ scriptencoding utf-8
 let g:use_lightline = 0
 let g:use_airline = 1
 let g:use_powerline = 0
-let g:use_nerd_fonts = 1
 
 function! Cond(cond, ...)
   let l:opts = get(a:000, 0, {})
@@ -114,8 +113,7 @@ Plug 'tmux-plugins/vim-tmux'          " Syntax highlighting for tmux
 
 
 " Aesthetic/Color Schemes
-" Fonts patched with powerline and devicons
-Plug 'ryanoasis/nerd-fonts', Cond(g:use_nerd_fonts, { 'do': './install.py "Inconsolata Go" Iosevka' })
+" XXX Install nerd fonts at ryanoasis/nerd-fonts
 " Light and configurable statusline/tabline
 Plug 'itchyny/lightline.vim', Cond(g:use_lightline)
 " A buffer list that lives in the tabline
@@ -136,7 +134,7 @@ Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 
 call plug#end()
 
-command! PU PlugUpdate | PlugUpgrade
+command! PU  PlugUpdate | PlugUpgrade
 
 
 function! PlugEnabled(plug)
