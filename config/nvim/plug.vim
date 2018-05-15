@@ -79,6 +79,7 @@ Plug 'jistr/vim-nerdtree-tabs'  " Open in all tabs
 " TODO Possible alternative?
 "Plug 'dyng/ctrlsf.vim'      " Ack powered code search
 Plug 'ctrlpvim/ctrlp.vim'   " Full path fuzzy file, buffer, mru, tag,... finder
+" TODO read docs
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'     " Fuzzy finder
 " XXX Install 'exuberant-ctags'
@@ -104,7 +105,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree showing git status flags
 " Python
 " PyLint, Rope, Pydoc breakpoints from box
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'tmhedberg/SimpylFold'             " Python code folding
+Plug 'tmhedberg/SimpylFold'       " Python code folding
 
 
 " Misc Language/Syntax
@@ -124,8 +125,9 @@ Plug 'vim-airline/vim-airline', Cond(g:use_airline)
 Plug 'vim-airline/vim-airline-themes', Cond(g:use_airline)
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Syntax highlight for NERDTree
 Plug 'ntpeters/vim-better-whitespace'   " Trailing whitespace highlighting
-"Plug 'Yggdroot/indentLine'    " Display lines at each indentation level
-Plug 'ap/vim-css-color'       " Preview colors in source code while editing
+"Plug 'Yggdroot/indentLine'      " Display lines at each indentation level
+Plug 'ap/vim-css-color'         " Preview colors in source code while editing
+Plug 'calebsmith/vim-lambdify'  " Conceal lambda functions with a λ
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -219,8 +221,8 @@ if PlugEnabled('is.vim')
     map g#  <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
   endif
   if !PlugEnabled('vim-airline') && PlugEnabled('vim-anzu')
-    map n  <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
-    map N  <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+    map n  <Plug>(is-nohl-1)<Plug>(anzu-n-with-echo)
+    map N  <Plug>(is-nohl-1)<Plug>(anzu-N-with-echo)
   endif
 endif
 
@@ -273,14 +275,6 @@ if PlugEnabled('lightline.vim')
 endif
 
 
-if PlugEnabled('vim-markdown')
-  augroup vim_markdown
-    au!
-    au FileType markdown set conceallevel=2
-  augroup END
-endif
-
-
 if PlugEnabled('nerdcommenter')
   " Add spaces after comment delimiters by default
   "let g:NERDSpaceDelims = 1
@@ -311,6 +305,12 @@ endif
 if PlugEnabled('vim-polyglot')
   " Use tmux-plugins/vim-tmux instead of keith/tmux.vim
   let g:polyglot_disabled = ['tmux']
+
+  " plasticboy/vim-markdown
+  augroup vim_markdown
+    au!
+    au FileType markdown set conceallevel=2
+  augroup END
 endif
 
 
