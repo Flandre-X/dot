@@ -10,6 +10,9 @@ nnoremap <M-l>  <C-w>l
 " Insert literal tab (useful if expandtab is enabled)
 inoremap <S-Tab>  <C-v><Tab>
 
+" Consistent with D and C
+nnoremap Y  y$
+
 
 " https://github.com/junegunn/vim-plug/wiki/extra  {{{
 " Open GitHub URLs in browser
