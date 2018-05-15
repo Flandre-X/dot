@@ -42,6 +42,7 @@ Plug 'qpkorr/vim-bufkill'     " Reasonable bufkill
 " Mappings/Commands/Text Objects
 " TODO read docs
 Plug 'tpope/vim-surround'   " Mappings to delete, change, and add surroundings
+Plug 'AndrewRadev/splitjoin.vim'  " Switch between single- and multi-line
 Plug 'junegunn/vim-easy-align'    " Mappings for text alignment
 " TODO learn mappings
 Plug 'scrooloose/nerdcommenter'   " Comment mappings
