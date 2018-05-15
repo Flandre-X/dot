@@ -14,7 +14,9 @@ instant_markdown ()
 {
     sudo apt install npm xdg-utils curl
     sudo npm -g install instant-markdown-d
-    local tmp_dir=$(mktemp -d)
+
+    local tmp_dir
+    tmp_dir=$(mktemp -d)
     git clone https://github.com/suan/vim-instant-markdown "$tmp_dir"
     mkdir -p after/ftplugin/markdown
     mv "$tmp_dir"/after/ftplugin/markdown/* -t after/ftplugin/markdown
@@ -35,7 +37,10 @@ nerd_fonts ()
 
     mkdir -p "$nerd_fonts_dir"
     git clone --depth 1 "$nerd_fonts_url" "$nerd_fonts_dir"
-    "$nerd_fonts_dir/install.sh" ${fonts[*]}
+    (
+	cd "$nerd_fonts_dir"
+	./install.sh "${fonts[@]}"
+    )
 }
 
 ! packages
