@@ -4,6 +4,8 @@
 set -euo pipefail
 IFS=$'\t\n'
 
-for f in install.d/*.sh; do
+scripts=(packages.sh links.sh)
+
+for f in "${scripts[@]}"; do
     [ -x "$f" ] && "$f"
 done
