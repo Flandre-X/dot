@@ -5,5 +5,5 @@ set -euo pipefail
 IFS=$'\t\n'
 
 for f in install.d/*.sh; do
-    [ -e "$f" ] && "$f"
+    [ -x "$f" ] && "$f"
 done
