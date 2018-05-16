@@ -173,7 +173,7 @@ endif
 
 
 if PlugEnabled('vim-devicons')
-  "set guifont
+  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 endif
 
 
