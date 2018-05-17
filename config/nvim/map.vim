@@ -1,6 +1,3 @@
-" Toggle fold/unfold
-nnoremap <Return>  za
-
 " Window navigation
 nnoremap <M-h>  <C-w>h
 nnoremap <M-j>  <C-w>j
