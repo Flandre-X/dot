@@ -30,24 +30,7 @@ install_packages ()
     sudo apt install "${packages[@]}"
 }
 
-nerd_fonts ()
-{
-    local nerd_fonts_url='https://github.com/ryanoasis/nerd-fonts'
-    local nerd_fonts_dir="$HOME/github/fonts/nerd-fonts"
-    local fonts=('Inconsolata Go' 'Iosevka')
-
-    [ -d "$nerd_fonts_dir" ] && [ -e "$nerd_fonts_dir/patched-fonts" ] && return 0
-
-    mkdir -p "$nerd_fonts_dir"
-    git clone --depth 1 "$nerd_fonts_url" "$nerd_fonts_dir"
-    (
-	cd "$nerd_fonts_dir"
-	./install.sh "${fonts[@]}"
-    )
-}
-
 install_packages
 
 ! ale_linters
 ! instant_markdown
-! nerd_fonts
