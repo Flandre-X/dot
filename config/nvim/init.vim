@@ -19,7 +19,10 @@ endfunction
 
 call s:enable_termgui()
 set background=dark
-autocmd ColorScheme solarized hi Normal guibg=NONE ctermbg=NONE
+augroup colorscheme_custom
+  autocmd!
+  autocmd ColorScheme solarized hi Normal guibg=NONE ctermbg=NONE
+augroup END
 silent! colorscheme solarized
 " Allow background to be transparent
 if g:use_airline
