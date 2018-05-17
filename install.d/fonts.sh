@@ -15,7 +15,7 @@ nfont_install_dir="$font_install_dir/NerdFonts"
 ibm_plex_dir="$font_dir/PlexNerdfont"
 ibm_plex ()
 {
-    local url='https://github.com/sgolovine/PlexNerdfont'
+    local url='https://github.com/Flandre-X/PlexNerdfont'
 
     mkdir -p "$ibm_plex_dir"
     git clone --depth 1 "$url" "$ibm_plex_dir"
