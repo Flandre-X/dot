@@ -13,11 +13,11 @@ _ln_home() {
 }
 
 for d in config/*; do
-    msg INSTALL "$(basename "$d")"
-    _ln_home "$d" ".$d" || echo "Failed to link $d"
+    msg 'LINK DIR' "$(basename "$d")"
+    _ln_home "$d" ".$d" || echo "FAIL"
 done
 
 while read f; do
-    msg INSTALL "$(basename "$f")"
-    _ln_home "$f" ".$f" || echo "Failed to link $d"
+    msg 'LINK FILE' "$(basename "$f")"
+    _ln_home "$f" ".$f" || echo "FAIL"
 done <to-install
