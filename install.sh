@@ -7,5 +7,6 @@ IFS=$'\t\n'
 scripts=(packages.sh links.sh)
 
 for f in "${scripts[@]}"; do
-    [ -x "$f" ] && "$f"
+    script="install.d/$f"
+    [ -x "$script" ] && "$script"
 done
