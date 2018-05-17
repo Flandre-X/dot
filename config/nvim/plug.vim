@@ -56,6 +56,12 @@ Plug 'wellle/visual-split.vim'    " Control splits with visual selections
 " TODO learn mappings
 Plug 'tpope/vim-unimpaired'       " Pairs of handy bracket mappings
 Plug 'tpope/vim-rsi'              " Readline key bindings in Vim
+" TODO install more text objects at kana/vim-textobj-user/wiki
+Plug 'kana/vim-textobj-user'      " Create your own text objects without pain
+Plug 'kana/vim-textobj-entire'    " Text objects for entire buffer
+Plug 'guns/vim-sexp'              " TODO
+" TODO lean mappings
+Plug 'wellle/targets.vim'         " Add various text objects
 " TODO learn mappings
 Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
@@ -63,13 +69,19 @@ Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
 
 " Code Writing assistance
 " XXX May require manual installation
-Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
+" TODO read docs
+"Plug 'Shougo/deoplete.nvim'     " Dark powered neo-completion
 Plug 'w0rp/ale'                 " Asynchronous Lint Engine
 Plug 'tpope/vim-endwise'        " Wisely add 'end'-like keywords
 Plug 'garbas/vim-snipmate'      " TextMate's snippets
 Plug 'honza/vim-snippets'       " vim-snipmate default snippets
 Plug 'jiangmiao/auto-pairs'     " Insert or delete pairs
 Plug 'KabbAmine/zeavim.vim'     " Zeal documentation from Vim
+
+
+" Testing/Debugging
+Plug 'janko-m/vim-test'         " Run tests on different granularities
 
 
 " Navigation
@@ -125,6 +137,7 @@ Plug 'ap/vim-buftabline', Cond(g:use_lightline)
 Plug 'vim-airline/vim-airline', Cond(g:use_airline)
 " Themes for airline
 Plug 'vim-airline/vim-airline-themes', Cond(g:use_airline)
+Plug 'mhinz/vim-startify'       " Start screen
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Syntax highlight for NERDTree
 Plug 'ntpeters/vim-better-whitespace'   " Trailing whitespace highlighting
 "Plug 'Yggdroot/indentLine'      " Display lines at each indentation level
@@ -133,6 +146,7 @@ Plug 'calebsmith/vim-lambdify'  " Conceal lambda functions with a λ
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Load last
 Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 
@@ -236,7 +250,9 @@ if PlugEnabled('lightline.vim')
   " Automatically change lightline colorscheme whenever the colorscheme
   " changes
   let g:lightline = {}
-  autocmd ColorScheme * let g:lightline.colorscheme = g:colors_name
+  augroup lightline_custom
+    autocmd ColorScheme * let g:lightline.colorscheme = g:colors_name
+  augroup END
 
   let s:fancy_lightline = 1
 
