@@ -10,6 +10,10 @@ inoremap <S-Tab>  <C-v><Tab>
 " Consistent with D and C
 nnoremap Y  y$
 
+" Edit or source vimrc
+nnoremap <silent> <Leader>ve  :e $MYVIMRC<CR>
+nnoremap <silent> <Leader>vs  :so $MYVIMRC<CR>
+
 
 " https://github.com/junegunn/vim-plug/wiki/extra  {{{
 " Open GitHub URLs in browser
