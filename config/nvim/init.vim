@@ -8,13 +8,8 @@ function! s:enable_termgui()
   if has('termguicolors')
     set termguicolors
   endif
-  " This doesn't seem to be necessary
-  if g:TMUX && 0
-    " If use vim inside tmux, see https://github.com/vim/vim/issues/993
-    " set Vim-specific sequences for RGB colors
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  endif
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endfunction
 
 call s:enable_termgui()
