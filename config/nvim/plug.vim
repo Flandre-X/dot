@@ -10,6 +10,8 @@ scriptencoding utf-8
 let g:use_lightline = 0
 let g:use_airline = 1
 let g:use_powerline = 0
+" Set to 0 to disable plugin features which use powerline symbols
+let g:use_powerline_font = 1
 
 function! Cond(cond, ...)
   let l:opts = get(a:000, 0, {})
@@ -33,10 +35,10 @@ Plug 'tpope/vim-repeat'       " Enable repeating supported plugin maps with '.'
 Plug 'kopischke/vim-stay'     " Make Vim persist editing state without fuss
 Plug 'Konfekt/FastFold'       " Speed up Vim fold updating
 Plug 'sjl/gundo.vim'          " Visualize your Vim undo tree
-Plug 'vimlab/split-term.vim'  " Utilities around neovim's `:terminal`
 Plug 'tpope/vim-sleuth'   " Heuristically set tab options based on current file
-Plug 'benmills/vimux'         " Interact with tmux from vim - e.g. code exec
 Plug 'qpkorr/vim-bufkill'     " Reasonable bufkill
+"Plug 'bagrat/vim-workspace'   " IDE-like tabs to Vim
+Plug 'sickill/vim-pasta'      " Pating with indentation adjusted to context
 
 
 " Mappings/Commands/Text Objects
@@ -47,7 +49,7 @@ Plug 'junegunn/vim-easy-align'    " Mappings for text alignment
 " TODO learn mappings
 Plug 'scrooloose/nerdcommenter'   " Comment mappings
 " TODO read docs
-"Plug 'svermeulen/vim-easyclip'    " Simplified clipboard functionality
+Plug 'svermeulen/vim-easyclip'    " Simplified clipboard functionality
 Plug 'tpope/vim-eunuch'           " Vim sugar for UNIX shell commands
 " TODO learn mappings
 Plug 'terryma/vim-multiple-cursors' " Sublime Text-like multiple cursors
@@ -80,8 +82,10 @@ Plug 'jiangmiao/auto-pairs'     " Insert or delete pairs
 Plug 'KabbAmine/zeavim.vim'     " Zeal documentation from Vim
 
 
-" Testing/Debugging
+" Testing/Debugging/Terminal/tmux
 Plug 'janko-m/vim-test'         " Run tests on different granularities
+Plug 'vimlab/split-term.vim'  " Utilities around neovim's `:terminal`
+Plug 'benmills/vimux'         " Interact with tmux from vim - e.g. code exec
 
 
 " Navigation
@@ -147,6 +151,7 @@ Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'whatyouhide/vim-gotham'
 " Load last
 Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 
@@ -156,14 +161,18 @@ command! PU  PlugUpdate | PlugUpgrade
 
 
 function! PlugEnabled(plug)
-  return &runtimepath =~ 'plugged/' . a:plug . '/'
+  return &runtimepath =~# 'plugged/' . a:plug . '/'
 endfunction
 
 if PlugEnabled('vim-airline')
-  let g:airline_powerline_fonts = 1
+  if g:use_powerline_font
+    let g:airline_powerline_fonts = 1
+  endif
 
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#formatter = 'default'
+  if !PlugEnabled('vim-workspace')
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'default'
+  endif
 endif
 
 
@@ -194,6 +203,11 @@ endif
 if PlugEnabled('vim-easy-align')
   xmap ga  <Plug>(EasyAlign)
   nmap ga  <Plug>(EasyAlign)
+endif
+
+
+if PlugEnabled('vim-easyclip')
+  let g:EasyClipUseSubstituteDefaults = 1
 endif
 
 
@@ -254,9 +268,7 @@ if PlugEnabled('lightline.vim')
     autocmd ColorScheme * let g:lightline.colorscheme = g:colors_name
   augroup END
 
-  let s:fancy_lightline = 1
-
-  if s:fancy_lightline
+  if g:use_powerline_font
     let g:lightline = {
       \ 'component': {
       \   'lineinfo': ' %3l:%-2v',
@@ -358,6 +370,19 @@ endif
 
 if PlugEnabled('tagbar')
   nnoremap <silent> <F8>  :TagbarToggle<CR>
+endif
+
+
+if PlugEnabled('vim-workspace')
+  if g:use_powerline_font
+    let g:workspace_powerline_separators = 1
+  endif
+
+  noremap <Tab>            :WSNext<CR>
+  noremap <S-Tab>          :WSPrev<CR>
+  noremap <Leader><Tab>    :WSClose<CR>
+  noremap <Leader><S-Tab>  :WSClose!<CR>
+  noremap <C-t>            :WSTabNew<CR>
 endif
 
 
