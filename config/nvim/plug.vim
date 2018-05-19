@@ -73,13 +73,14 @@ Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
 " XXX May require manual installation
 "Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
 " TODO read docs
-"Plug 'Shougo/deoplete.nvim'     " Dark powered neo-completion
-Plug 'w0rp/ale'                 " Asynchronous Lint Engine
-Plug 'tpope/vim-endwise'        " Wisely add 'end'-like keywords
-Plug 'garbas/vim-snipmate'      " TextMate's snippets
-Plug 'honza/vim-snippets'       " vim-snipmate default snippets
-Plug 'jiangmiao/auto-pairs'     " Insert or delete pairs
-Plug 'KabbAmine/zeavim.vim'     " Zeal documentation from Vim
+"Plug 'Shougo/deoplete.nvim'       " Dark powered neo-completion
+Plug 'w0rp/ale'                   " Asynchronous Lint Engine
+Plug 'tpope/vim-endwise'          " Wisely add 'end'-like keywords
+Plug 'garbas/vim-snipmate'        " TextMate's snippets
+Plug 'honza/vim-snippets'         " vim-snipmate default snippets
+Plug 'jiangmiao/auto-pairs'       " Insert or delete pairs
+Plug 'KabbAmine/zeavim.vim'       " Zeal documentation from Vim
+Plug 'tweekmonster/braceless.vim' " Text objects, folding, etc for Python and others
 
 
 " Testing/Debugging/Terminal/tmux
@@ -191,6 +192,15 @@ endif
 if PlugEnabled('auto-pairs')
   " Turn on Fly Mode
   let g:AutoPairsFlyMode = 1
+endif
+
+
+if PlugEnabled('braceless.vim')
+  augroup braceless_custom
+    au!
+    autocmd FileType python BracelessEnable +indent
+    " +highlight not used because it's very slow
+  augroup END
 endif
 
 
