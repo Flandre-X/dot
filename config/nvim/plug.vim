@@ -146,7 +146,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Syntax highlight for NERDTree
 Plug 'ntpeters/vim-better-whitespace'   " Trailing whitespace highlighting
 "Plug 'Yggdroot/indentLine'      " Display lines at each indentation level
 Plug 'ap/vim-css-color'         " Preview colors in source code while editing
-Plug 'calebsmith/vim-lambdify'  " Conceal lambda functions with a λ
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
