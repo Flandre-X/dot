@@ -67,6 +67,7 @@ Plug 'wellle/targets.vim'         " Add various text objects
 " TODO learn mappings
 Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
+Plug 'tpope/vim-speeddating'      " <C-A>/<C-X> increments dates and more
 
 
 " Code Writing assistance
@@ -129,6 +130,7 @@ Plug 'tmhedberg/SimpylFold'       " Python code folding
 
 " Misc Language/Syntax
 Plug 'sheerun/vim-polyglot'           " Collection of language packs
+Plug 'jceb/vim-orgmode'               " Emacs' Org-Mode for Vim
 Plug 'tmux-plugins/vim-tmux'          " Syntax highlighting for tmux
 
 
