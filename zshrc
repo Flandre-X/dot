@@ -60,14 +60,18 @@ ZSH_THEME="robbyrussell"
 
 source $ZSH/oh-my-zsh.sh
 
+use_zplug=false
+
 # ZPlug
-export ZPLUG_HOME="$HOME/.zplug"
-source "$ZPLUG_HOME/init.zsh"
+if $use_zplug; then
+  export ZPLUG_HOME="$HOME/.zplug"
+  source "$ZPLUG_HOME/init.zsh"
 
-# Oh My Zsh
-zplug "plugins/git", from:oh-my-zsh
+  # Oh My Zsh
+  zplug "plugins/git", from:oh-my-zsh
 
-zplug load
+  zplug load
+fi
 
 # User configuration
 
