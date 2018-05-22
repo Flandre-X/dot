@@ -39,7 +39,7 @@ Plug 'sjl/gundo.vim'          " Visualize your Vim undo tree
 Plug 'tpope/vim-sleuth'   " Heuristically set tab options based on current file
 Plug 'qpkorr/vim-bufkill'     " Reasonable bufkill
 "Plug 'bagrat/vim-workspace'   " IDE-like tabs to Vim
-Plug 'sickill/vim-pasta'      " Pating with indentation adjusted to context
+Plug 'sickill/vim-pasta'      " Pasting with indentation adjusted to context
 
 
 " Mappings/Commands/Text Objects
