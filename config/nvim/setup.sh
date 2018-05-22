@@ -13,18 +13,6 @@ ale_linters ()
     pip install vim-vint
 }
 
-instant_markdown ()
-{
-    sudo apt install npm xdg-utils curl
-    sudo npm -g install instant-markdown-d
-
-    local tmp_dir
-    tmp_dir=$(mktemp -d)
-    git clone https://github.com/suan/vim-instant-markdown "$tmp_dir"
-    mkdir -p after/ftplugin/markdown
-    mv "$tmp_dir"/after/ftplugin/markdown/* -t after/ftplugin/markdown
-}
-
 install_packages ()
 {
     sudo apt install "${packages[@]}"
@@ -33,4 +21,4 @@ install_packages ()
 install_packages
 
 ! ale_linters
-! instant_markdown
+true
