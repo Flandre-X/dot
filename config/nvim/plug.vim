@@ -131,8 +131,10 @@ Plug 'tmhedberg/SimpylFold'       " Python code folding
 
 " Misc Language/Syntax
 Plug 'sheerun/vim-polyglot'           " Collection of language packs
+Plug 'plasticboy/vim-markdown'
 Plug 'jceb/vim-orgmode'               " Emacs' Org-Mode for Vim
 Plug 'tmux-plugins/vim-tmux'          " Syntax highlighting for tmux
+Plug 'euclio/vim-markdown-composer'   " Asynchronous markdown preview
 
 
 " Aesthetic/Color Schemes
@@ -317,6 +319,14 @@ if PlugEnabled('lightline.vim')
 endif
 
 
+if PlugEnabled('vim-markdown')
+  augroup vim_markdown
+    au!
+    au FileType markdown set conceallevel=2
+  augroup END
+endif
+
+
 if PlugEnabled('nerdcommenter')
   " Add spaces after comment delimiters by default
   "let g:NERDSpaceDelims = 1
@@ -345,14 +355,8 @@ endif
 
 
 if PlugEnabled('vim-polyglot')
-  " Use tmux-plugins/vim-tmux instead of keith/tmux.vim
-  let g:polyglot_disabled = ['tmux']
-
-  " plasticboy/vim-markdown
-  augroup vim_markdown
-    au!
-    au FileType markdown set conceallevel=2
-  augroup END
+  " Use different language plugins instead of default
+  let g:polyglot_disabled = ['tmux', 'markdown']
 endif
 
 
