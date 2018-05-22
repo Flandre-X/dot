@@ -73,7 +73,7 @@ Plug 'tpope/vim-speeddating'      " <C-A>/<C-X> increments dates and more
 
 " Code Writing assistance
 " XXX May require manual installation
-"Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
 " TODO read docs
 "Plug 'Shougo/deoplete.nvim'       " Dark powered neo-completion
 Plug 'w0rp/ale'                   " Asynchronous Lint Engine
@@ -161,6 +161,18 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'whatyouhide/vim-gotham'
 " Load last
 Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
+
+
+" TODO
+"Plug 'junegunn/goyo.vim'            " Distraction-free writing in Vim
+"Plug 'junegunn/limelight.vim'       " Hyperfocus-writing in Vim
+" May be superceded by easyclip
+"Plug 'maxbrunsfeld/vim-yankstack'   " Emacs 'kill ring' for Vim
+"Plug 'vim-scripts/YankRing.vim'     " Emacs 'kill ring' for Vim
+" FZF + ripgrep
+" http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
+" https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
+" https://github.com/BurntSushi/ripgrep
 
 call plug#end()
 
