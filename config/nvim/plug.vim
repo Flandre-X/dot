@@ -28,6 +28,7 @@ Plug 'tomtom/tlib_vim'                " Some utility functions for VIM
 Plug 'godlygeek/tabular'              " Text filtering and alignment
                                       " plasticboy/vim-markdown
 
+
 " Vim-specific
 " TODO read docs
 Plug 'tpope/vim-sensible'     " Defaults everyone can agree on
