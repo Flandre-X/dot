@@ -89,6 +89,8 @@ Plug 'tweekmonster/braceless.vim' " Text objects, folding, etc for Python and ot
 Plug 'janko-m/vim-test'         " Run tests on different granularities
 Plug 'vimlab/split-term.vim'  " Utilities around neovim's `:terminal`
 Plug 'benmills/vimux'         " Interact with tmux from vim - e.g. code exec
+" TODO may not be necessary
+Plug 'krisajenkins/vim-pipe'  " Send a vim buffer through a command
 
 
 " Navigation
@@ -351,6 +353,12 @@ if PlugEnabled('vim-nerdtree-tabs')
 elseif PlugEnabled('nerdtree')
   noremap <silent> <C-\>  :NERDTreeToggle<CR>
   noremap <silent> <A-\>  :NERDTreeFocus<CR>
+endif
+
+
+if PlugEnabled('vim-pipe')
+  let g:vimpipe_invoke_map = '<LocalLeader>r'
+  let g:vimpipe_close_map = '<LocalLeader>p'
 endif
 
 

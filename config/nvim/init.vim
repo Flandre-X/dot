@@ -1,6 +1,7 @@
-source ~/.config/nvim/plug.vim
+let mapleader = ','
+let maplocalleader = '\'
 
-let mapleader = ","
+source ~/.config/nvim/plug.vim
 
 let g:TMUX = exists('$TMUX')
 
