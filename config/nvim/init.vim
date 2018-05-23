@@ -20,6 +20,8 @@ augroup colorscheme_custom
   autocmd ColorScheme solarized hi Normal guibg=NONE ctermbg=NONE
 augroup END
 silent! colorscheme solarized
+"let g:limelight_conceal_ctermfg = '#839496'
+"let g:limelight_conceal_guifg   = '#839496' " #839496
 " Allow background to be transparent
 if g:use_airline
   "let g:airline_theme = 'solarized'

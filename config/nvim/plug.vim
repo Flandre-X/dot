@@ -40,6 +40,8 @@ Plug 'tpope/vim-sleuth'   " Heuristically set tab options based on current file
 Plug 'qpkorr/vim-bufkill'     " Reasonable bufkill
 "Plug 'bagrat/vim-workspace'   " IDE-like tabs to Vim
 Plug 'sickill/vim-pasta'      " Pasting with indentation adjusted to context
+" TODO fix errors
+Plug 'vim-scripts/ZoomWin'    " Toggle zoom single window
 
 
 " Mappings/Commands/Text Objects
@@ -154,6 +156,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Syntax highlight for NERDTree
 Plug 'ntpeters/vim-better-whitespace'   " Trailing whitespace highlighting
 "Plug 'Yggdroot/indentLine'      " Display lines at each indentation level
 Plug 'ap/vim-css-color'         " Preview colors in source code while editing
+Plug 'junegunn/goyo.vim'        " Distraction-free writing in Vim
+Plug 'junegunn/limelight.vim'   " Hyperfocus-writing in Vim
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -164,8 +168,6 @@ Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 
 
 " TODO
-"Plug 'junegunn/goyo.vim'            " Distraction-free writing in Vim
-"Plug 'junegunn/limelight.vim'       " Hyperfocus-writing in Vim
 " May be superceded by easyclip
 "Plug 'maxbrunsfeld/vim-yankstack'   " Emacs 'kill ring' for Vim
 "Plug 'vim-scripts/YankRing.vim'     " Emacs 'kill ring' for Vim
@@ -252,6 +254,18 @@ if PlugEnabled('vim-fugitive')
 endif
 
 
+if PlugEnabled('goyo.vim')
+  nmap <silent> <Leader>G  :Goyo<CR>
+  if PlugEnabled('limelight.vim')
+    augroup goyo_custom
+      au!
+      autocmd User GoyoEnter Limelight
+      autocmd User GoyoLeave Limelight!
+    augroup END
+  endif
+endif
+
+
 if PlugEnabled('gundo.vim')
   nnoremap <silent> <F5>  :GundoToggle<CR>
 endif
@@ -293,6 +307,7 @@ if PlugEnabled('lightline.vim')
   " changes
   let g:lightline = {}
   augroup lightline_custom
+    au!
     autocmd ColorScheme * let g:lightline.colorscheme = g:colors_name
   augroup END
 
@@ -330,6 +345,12 @@ if PlugEnabled('lightline.vim')
       \ },
       \ }
   endif
+endif
+
+
+if PlugEnabled('limelight.vim')
+  nmap <Leader>l  <Plug>(Limelight)
+  xmap <Leader>l  <Plug>(Limelight)
 endif
 
 
