@@ -42,6 +42,7 @@ Plug 'qpkorr/vim-bufkill'     " Reasonable bufkill
 Plug 'sickill/vim-pasta'      " Pasting with indentation adjusted to context
 " TODO fix errors
 Plug 'vim-scripts/ZoomWin'    " Toggle zoom single window
+Plug 'tpope/vim-dispatch'     " Asynchronicity (e.g. fugitive)
 
 
 " Mappings/Commands/Text Objects
