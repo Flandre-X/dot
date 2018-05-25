@@ -255,6 +255,12 @@ if PlugEnabled('vim-fugitive')
 endif
 
 
+if PlugEnabled('vim-gitgutter')
+  " Make gutter update faster
+  set updatetime=100
+endif
+
+
 if PlugEnabled('goyo.vim')
   nmap <silent> <Leader>G  :Goyo<CR>
   if PlugEnabled('limelight.vim')
