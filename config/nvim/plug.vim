@@ -459,5 +459,7 @@ endif
 
 if PlugEnabled('zeavim.vim')
   " <leader><leader> is the easymotion prefix
+  nmap <leader>z  <Plug>Zeavim
+  vmap <leader>z  <Plug>ZVVisSelection
   nmap <leader>Z  <Plug>ZVKeyDocset
 endif
