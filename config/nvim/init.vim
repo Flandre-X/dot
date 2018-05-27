@@ -52,4 +52,6 @@ set inccommand=nosplit
 
 set undofile
 
+set smartcase
+
 source ~/.config/nvim/map.vim

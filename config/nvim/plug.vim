@@ -7,11 +7,11 @@
 
 scriptencoding utf-8
 
-let g:use_lightline = 0
-let g:use_airline = 1
-let g:use_powerline = 0
+let g:use_lightline = v:false
+let g:use_airline = v:true
+let g:use_powerline = v:false
 " Set to 0 to disable plugin features which use powerline symbols
-let g:use_powerline_font = 1
+let g:use_powerline_font = v:true
 
 function! Cond(cond, ...)
   let l:opts = get(a:000, 0, {})
@@ -43,6 +43,7 @@ Plug 'sickill/vim-pasta'      " Pasting with indentation adjusted to context
 " TODO fix errors
 Plug 'vim-scripts/ZoomWin'    " Toggle zoom single window
 Plug 'tpope/vim-dispatch'     " Asynchronicity (e.g. fugitive)
+Plug 'mhinz/vim-randomtag'    " Lean something new about Vim every day
 
 
 " Mappings/Commands/Text Objects
@@ -72,13 +73,21 @@ Plug 'wellle/targets.vim'         " Add various text objects
 Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
 Plug 'tpope/vim-speeddating'      " <C-A>/<C-X> increments dates and more
+Plug 'terryma/vim-expand-region'  " Visually select increasingly larger regions
 
 
 " Code Writing assistance
 " XXX May require manual installation
-Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
 " TODO read docs
-"Plug 'Shougo/deoplete.nvim'       " Dark powered neo-completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/echodoc.vim'         " Display function signatures in command ln
 Plug 'w0rp/ale'                   " Asynchronous Lint Engine
 Plug 'tpope/vim-endwise'          " Wisely add 'end'-like keywords
 Plug 'garbas/vim-snipmate'        " TextMate's snippets
@@ -131,7 +140,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'    " NERDTree showing git status flags
 " Python
 " PyLint, Rope, Pydoc breakpoints from box
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'tmhedberg/SimpylFold'       " Python code folding
+Plug 'tmhedberg/SimpylFold'     " Python code folding
 
 
 " Misc Language/Syntax
@@ -226,6 +235,18 @@ if PlugEnabled('braceless.vim')
 endif
 
 
+if PlugEnabled('deoplete.vim')
+  " TODO lazy load
+  let g:deoplete#enable_at_startup = 1
+  let g:python_host_prog  = '/usr/bin/python'
+  let g:python3_host_prog = '/usr/bin/python3'
+  augroup deoplete_custom
+    au!
+    autocmd CompleteDone * silent! pclose!
+  augroup END
+endif
+
+
 if PlugEnabled('vim-devicons')
   let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 endif
@@ -239,6 +260,8 @@ endif
 
 if PlugEnabled('vim-easyclip')
   let g:EasyClipUseSubstituteDefaults = 1
+
+  nnoremap gm  m
 endif
 
 
@@ -258,6 +281,8 @@ endif
 if PlugEnabled('vim-gitgutter')
   " Make gutter update faster
   set updatetime=100
+  let g:gitgutter_override_sign_column_highlight = 0
+  highlight clear SignColumn
 endif
 
 
@@ -366,6 +391,19 @@ if PlugEnabled('vim-markdown')
     au!
     au FileType markdown set conceallevel=2
   augroup END
+endif
+
+
+if PlugEnabled('vim-multiple-cursors')
+  " Disable deoplete when using vim-multiple-cursors
+  if PlugEnabled('deoplete.vim')
+    function g:Multiple_cursors_before()
+      call deoplete#custom#buffer_option('auto_complete', v:false)
+    endfunction
+    function g:Multiple_cursors_after()
+      call deoplete#custom#buffer_option('auto_complete', v:true)
+    endfunction
+  endif
 endif
 
 
