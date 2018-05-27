@@ -161,7 +161,6 @@ Plug 'ap/vim-buftabline', Cond(g:use_lightline)
 Plug 'vim-airline/vim-airline', Cond(g:use_airline)
 " Themes for airline
 Plug 'vim-airline/vim-airline-themes', Cond(g:use_airline)
-Plug 'mhinz/vim-startify'       " Start screen
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Syntax highlight for NERDTree
 Plug 'ntpeters/vim-better-whitespace'   " Trailing whitespace highlighting
 "Plug 'Yggdroot/indentLine'      " Display lines at each indentation level
