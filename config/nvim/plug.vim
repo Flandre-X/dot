@@ -184,6 +184,7 @@ Plug 'ryanoasis/vim-devicons'   " Add icons to NERDTree
 " http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
 " https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
 " https://github.com/BurntSushi/ripgrep
+"Plug 'thinca/vim-quickrun'
 
 call plug#end()
 
