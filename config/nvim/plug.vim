@@ -151,6 +151,10 @@ Plug 'tmux-plugins/vim-tmux'          " Syntax highlighting for tmux
 Plug 'euclio/vim-markdown-composer'   " Asynchronous markdown preview
 
 
+" Miscellaneous
+Plug 'qpkorr/vim-renamer'     " Batch rename files
+
+
 " Aesthetic/Color Schemes
 " XXX Install nerd fonts at ryanoasis/nerd-fonts
 " Light and configurable statusline/tabline
