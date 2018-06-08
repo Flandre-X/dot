@@ -169,7 +169,7 @@ bindsym $mod+Shift+t        gaps inner current set 15; gaps outer current set 15
 #bindsym $mod+y              exec $term -e calcurse
 bindsym $mod+Shift+y        resize shrink width 10 px or 10 ppt
 
-bindsym $mod+u              [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+#bindsym $mod+u              [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 bindsym $mod+Shift+u        resize shrink height 10 px or 10 ppt
 
 bindsym $mod+i              exec $term -e htop
@@ -198,7 +198,7 @@ bindsym $mod+f              fullscreen toggle
 ##bindsym $mod+Shift+f
 
 bindsym $mod+g              workspace prev
-bindsym $mod+Shift+g        exec --no-startup-id gimp; workspace $ws5
+#bindsym $mod+Shift+g        exec --no-startup-id gimp; workspace $ws5
 
 bindsym $mod+h              focus left
 bindsym $mod+Shift+h        move left 30
