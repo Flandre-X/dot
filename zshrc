@@ -150,6 +150,9 @@ if $USE_ZPLUG; then
   # Can manage local plugins
   #zplug "~/.zsh", from:local
 
+  zplug "mafredri/zsh-async", from:github
+  zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+
   # Oh My Zsh
   #zplug "themes/robbyrussel", from:oh-my-zsh, as:theme
   zplug "plugins/command-not-found", from:oh-my-zsh
