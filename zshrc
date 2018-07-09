@@ -144,9 +144,6 @@ if $USE_ZPLUG; then
   # Can manage local plugins
   #zplug "~/.zsh", from:local
 
-  # Load theme file
-  zplug 'dracula/zsh', as:theme
-
   # Install plugins if there are plugins that have not been installed
   if ! zplug check; then
     printf "Install? [y/N]: "
@@ -157,6 +154,7 @@ if $USE_ZPLUG; then
 
   # Oh My Zsh
   #zplug "themes/robbyrussel", from:oh-my-zsh, as:theme
+  zplug "plugins/command-not-found", from:oh-my-zsh
 
   zplug load
 fi
