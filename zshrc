@@ -65,6 +65,12 @@ fi
 # ZPlug
 if $USE_ZPLUG; then
   export ZPLUG_HOME="$HOME/.zplug"
+
+  if [ ! -e "$ZPLUG_HOME" ]; then
+    printf "Installing zplug..."
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  fi
+
   source "$ZPLUG_HOME/init.zsh"
 
   # Make sure to use double quotes
@@ -144,6 +150,10 @@ if $USE_ZPLUG; then
   # Can manage local plugins
   #zplug "~/.zsh", from:local
 
+  # Oh My Zsh
+  #zplug "themes/robbyrussel", from:oh-my-zsh, as:theme
+  zplug "plugins/command-not-found", from:oh-my-zsh
+
   # Install plugins if there are plugins that have not been installed
   if ! zplug check; then
     printf "Install? [y/N]: "
@@ -151,10 +161,6 @@ if $USE_ZPLUG; then
       echo; zplug install
     fi
   fi
-
-  # Oh My Zsh
-  #zplug "themes/robbyrussel", from:oh-my-zsh, as:theme
-  zplug "plugins/command-not-found", from:oh-my-zsh
 
   zplug load
 fi
