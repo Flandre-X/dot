@@ -198,5 +198,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias vimconfig="$EDITOR ~/.config/nvim/plug.vim"
+export MANPAGER="nvim -c 'set ft=man' -"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
