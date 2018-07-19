@@ -182,6 +182,12 @@ else
   export EDITOR='nvim'
 fi
 
+# Preferred keybindings
+# Emacs
+bindkey -e
+# Vim
+#bindkey -v
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
