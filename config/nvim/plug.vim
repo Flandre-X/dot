@@ -78,14 +78,14 @@ Plug 'terryma/vim-expand-region'  " Visually select increasingly larger regions
 
 " Code Writing assistance
 " XXX May require manual installation
-"Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do:': './install.py --clang-completer' }
 " TODO read docs
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'Shougo/echodoc.vim'         " Display function signatures in command ln
 Plug 'w0rp/ale'                   " Asynchronous Lint Engine
