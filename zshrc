@@ -170,6 +170,7 @@ fi
 
 # User configuration
 
+export PATH="$HOME/.cargo/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -209,3 +210,5 @@ alias ls="ls --color=auto"
 export MANPAGER="nvim -c 'set ft=man' -"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
