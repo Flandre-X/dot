@@ -210,5 +210,15 @@ alias ls="ls --color=auto"
 export MANPAGER="nvim -c 'set ft=man' -"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+if command -v rg &>/dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+elif [ ! -e ~/.fzf-no-ripgrep ]; then
+  echo "FZF can use ripgrep for greater speed."
+  echo "To install ripgrep, run the following commands:"
+  echo -e "\tsudo apt install cargo"
+  echo -e "\tcargo install ripgrep"
+  echo
+  echo "If you want to disable this message, run the following command:"
+  echo -e "\ttouch ~/.fzf-no-ripgrep"
+fi
