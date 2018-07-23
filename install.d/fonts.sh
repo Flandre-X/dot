@@ -29,7 +29,7 @@ nerd_fonts_dir="$font_dir/nerd-fonts"
 nerd_fonts ()
 {
     local url='https://github.com/ryanoasis/nerd-fonts'
-    local fonts=('Inconsolata Go' 'Iosevka')
+    local fonts=('InconsolataGo' 'Iosevka')
 
     mkdir -p "$nerd_fonts_dir"
     git clone --depth 1 "$url" "$nerd_fonts_dir"
