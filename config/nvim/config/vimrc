@@ -54,4 +54,7 @@ set undofile
 
 set smartcase
 
+" Don't insert two spaces after a '.', '?', and '!' with a join command.
+set nojoinspaces
+
 source ~/.config/nvim/map.vim
