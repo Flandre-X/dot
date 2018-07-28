@@ -8,7 +8,7 @@ on_exit ()
 }
 trap on_exit EXIT
 
-font_dir="$HOME/github/fonts"
+font_dir="$HOME/fonts"
 font_install_dir="$HOME/.local/share/fonts"
 nfont_install_dir="$font_install_dir/NerdFonts"
 
