@@ -131,6 +131,7 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+export DOT="$HOME/.dot"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
