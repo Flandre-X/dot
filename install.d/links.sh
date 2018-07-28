@@ -19,5 +19,5 @@ done
 
 while read -r f; do
     msg 'LINK FILE' "$(basename "$f")"
-    _ln_home "$f" ".$f" || echo "FAIL"
+    _ln_home "home/$f" ".$f" || echo "FAIL"
 done <to-install
