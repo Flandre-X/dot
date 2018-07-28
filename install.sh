@@ -4,7 +4,15 @@
 set -euo pipefail
 IFS=$'\t\n'
 
-scripts=(packages.sh links.sh vim-plug.sh fzf.sh fonts.sh)
+scripts=(
+packages.sh
+links.sh
+vim-plug.sh
+fzf.sh
+fonts.sh
+themes.sh
+#i3-gaps.sh
+)
 
 for f in "${scripts[@]}"; do
     script="install.d/$f"

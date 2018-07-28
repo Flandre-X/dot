@@ -23,3 +23,6 @@ mkdir -p build && cd build
 ../configure --prefix="$prefix" --sysconfdir="$sysconfdir" --disable-sanitizers
 make
 sudo make install
+
+# Copy ssh-agent.service to systemd
+rsync -a systemd/ ~/.config/systemd/
