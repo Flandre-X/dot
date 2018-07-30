@@ -3,12 +3,16 @@ set -uo pipefail
 IFS=$'\t\n'
 
 packages=(
+build-essential
 cargo
+cmake
 #i3
 neovim
 npm
 python
+python-dev
 python3
+python3-dev
 python3.7
 python-pip
 python3-pip
