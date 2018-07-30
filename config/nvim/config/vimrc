@@ -27,6 +27,8 @@ if g:use_airline
   "let g:airline_theme = 'solarized'
 endif
 
+set autoread
+
 set colorcolumn=79
 set cursorline
 set number
