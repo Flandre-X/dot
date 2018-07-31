@@ -3,6 +3,7 @@ set -uo pipefail
 IFS=$'\t\n'
 
 packages=(
+bpython
 build-essential
 cargo
 cmake
