@@ -176,6 +176,7 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias vimconfig="$EDITOR ~/.config/nvim/plug.vim"
 alias ls="ls --color=auto"
+alias bpython=bpython3
 
 export MANPAGER="nvim -c 'set ft=man' -"
 
