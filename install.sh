@@ -18,3 +18,5 @@ for f in "${scripts[@]}"; do
     script="install.d/$f"
     [ -x "$script" ] && "$script"
 done
+
+chsh -s zsh
