@@ -74,6 +74,7 @@ Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
 Plug 'tpope/vim-speeddating'      " <C-A>/<C-X> increments dates and more
 Plug 'terryma/vim-expand-region'  " Visually select increasingly larger regions
+Plug 'ervandew/supertab'          " Use tab for all your insert completion needs
 
 
 " Code Writing assistance
