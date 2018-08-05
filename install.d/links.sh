@@ -17,7 +17,8 @@ for d in config/*; do
     _ln_home "$d" ".$d" || echo "FAIL"
 done
 
-while read -r f; do
-    msg 'LINK FILE' "$(basename "$f")"
-    _ln_home "home/$f" ".$f" || echo "FAIL"
-done <to-install
+for file in home/*; do
+    base="$(basename "$file")"
+    msg 'LINK FILE' "$base"
+    echo _ln_home "$file" ".$base" || echo "FAIL"
+done
