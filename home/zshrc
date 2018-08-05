@@ -107,7 +107,15 @@ alias bpython=bpython3
 
 export MANPAGER="nvim -c 'set ft=man' -"
 
+# tmux italics/true color
+tic -x "$DOT/aux/xterm-256color-italic.terminfo"
+tic -x "$DOT/aux/tmux-256color.terminfo"
+export TERM=xterm-256color-italic
+# Prevent it from breaking ssh
+alias ssh='TERM=xterm-256color ssh'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# ripgrep
 if command -v rg &>/dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
