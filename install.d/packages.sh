@@ -53,7 +53,7 @@ if command -v gem &>/dev/null; then
 fi
 
 if command -v npm &>/dev/null; then
-    npm install -g "${npm_packages[@]}"
+    sudo npm install -g "${npm_packages[@]}"
 fi
 
 if command -v pip &>/dev/null; then
