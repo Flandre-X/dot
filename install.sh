@@ -19,4 +19,7 @@ for f in "${scripts[@]}"; do
     [ -x "$script" ] && "$script"
 done
 
-chsh -s zsh
+if [ "$(basename "$SHELL")" != zsh ]; then
+    echo 'Changing default shell to zsh...'
+    chsh -s "$(which zsh)"
+fi
