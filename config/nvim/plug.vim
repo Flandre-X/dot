@@ -69,6 +69,7 @@ Plug 'kana/vim-textobj-entire'    " Text objects for entire buffer
 Plug 'guns/vim-sexp'              " TODO
 " TODO lean mappings
 Plug 'wellle/targets.vim'         " Add various text objects
+Plug 'michaeljsmith/vim-indent-object' " Text objects based on indentation level
 " TODO learn mappings
 Plug 'easymotion/vim-easymotion'  " Vim motions on speed!
 Plug 'jeetsukumaran/vim-indentwise' " Motions based on indent depths or levels
