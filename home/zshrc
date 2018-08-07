@@ -39,6 +39,8 @@ if $USE_ZPLUG; then
 
   # Prompt
   zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+  # Uncomment the following line to disable git prompt
+  #export SPACESHIP_GIT_SHOW=false
   #zplug "themes/robbyrussell", from:oh-my-zsh, as:theme
   #zplug "mafredri/zsh-async", from:github
   #zplug "sindresorhus/pure", use:pure.zsh, from:github, on:zsh-async, as:theme
