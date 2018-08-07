@@ -54,15 +54,15 @@ if $USE_ZPLUG; then
   zplug load
 fi
 
-# User configuration
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.cargo/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 export DOT="$HOME/.dot"
-
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export MANPAGER="nvim -c 'set ft=man' -"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -70,49 +70,26 @@ else
   export EDITOR='nvim'
 fi
 
-# Preferred keybindings
-# Emacs
-bindkey -e
-# Vim
-#bindkey -v
-
-# Enable Ctrl-x-e to edit command line
-autoload -U edit-command-line
-# Emacs style
-zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
-# Vi style:
-# zle -N edit-command-line
-# bindkey -M vicmd v edit-command-line
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias vimconfig="$EDITOR ~/.config/nvim/plug.vim"
 alias ls="ls --color=auto"
 alias bpython=bpython3
 
-export MANPAGER="nvim -c 'set ft=man' -"
+# Preferred keybindings
+# Emacs
+bindkey -e
+# Vim
+#bindkey -v
 
 # tmux italics/true color
-tic -x "$DOT/aux/xterm-256color-italic.terminfo"
-tic -x "$DOT/aux/tmux-256color.terminfo"
-export TERM=xterm-256color-italic
-# Prevent it from breaking ssh
-alias ssh='TERM=xterm-256color ssh'
+if command -v tmux &>/dev/null; then
+  tic -x "$DOT/aux/xterm-256color-italic.terminfo"
+  tic -x "$DOT/aux/tmux-256color.terminfo"
+  export TERM=xterm-256color-italic
+  # Prevent it from breaking ssh
+  alias ssh='TERM=xterm-256color ssh'
+fi
 
 # Completion
 if command -v docker-compose &>/dev/null; then
@@ -123,8 +100,18 @@ if command -v pipenv &>/dev/null; then
   eval "$(pipenv --completion)"
 fi
 
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+# Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+# Vi style
+# zle -N edit-command-line
+# bindkey -M vicmd v edit-command-line
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# ripgrep
+# fzf + ripgrep
 if command -v rg &>/dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
