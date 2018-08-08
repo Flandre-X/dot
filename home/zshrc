@@ -72,9 +72,8 @@ else
   export EDITOR='nvim'
 fi
 
-alias zshconfig="$EDITOR ~/.zshrc"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-alias vimconfig="$EDITOR ~/.config/nvim/plug.vim"
+alias zshcfg="$EDITOR ~/.zshrc"
+alias vimcfg="$EDITOR ~/.config/nvim/plug.vim"
 alias ls="ls --color=auto"
 alias bpython=bpython3
 
