@@ -75,6 +75,7 @@ fi
 alias zshcfg="$EDITOR ~/.zshrc"
 alias vimcfg="$EDITOR ~/.config/nvim/plug.vim"
 alias ls="ls --color=auto"
+alias pydoc=pydoc3
 alias bpython=bpython3
 
 # Preferred keybindings
