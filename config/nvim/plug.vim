@@ -151,6 +151,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'jceb/vim-orgmode'               " Emacs' Org-Mode for Vim
 Plug 'tmux-plugins/vim-tmux'          " Syntax highlighting for tmux
 Plug 'euclio/vim-markdown-composer'   " Asynchronous markdown preview
+Plug 'lepture/vim-jinja'              " Syntax highlighting for 神社
 
 
 " Miscellaneous
