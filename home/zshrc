@@ -84,6 +84,10 @@ alias bpython=bpython3
 if is_command hub; then
   alias git=hub
 fi
+if is_command heroku; then
+  # Instead of fixing the bad habit, feed it
+  alias herkou=heroku
+fi
 
 # Preferred keybindings
 # Emacs
